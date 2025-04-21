@@ -1,0 +1,23 @@
+pytorch-lightning==2.3.3
+torchmetrics==0.7.0
+torch==2.3.1 --index-url https://download.pytorch.org/whl/cu121
+torchvision==0.18.1 --index-url https://download.pytorch.org/whl/cu121
+scipy==1.13.1
+numpy
+tqdm==4.66.4
+espnet==202301
+moviepy==1.0.3
+python_speech_features==0.6
+facexlib
+tb-nightly -i https://mirrors.aliyun.com/pypi/simple
+gfpgan
+pydub
+edge-tts==6.1.10
+gradio==4.19.1
+deep_translator==1.11.4
+soundfile==0.10.3.post1
+transformers
+scenedetect==0.6.4
+librosa
+auto-editor
+facexlib
