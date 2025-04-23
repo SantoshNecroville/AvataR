@@ -1,11 +1,18 @@
 from flask import Flask, request, jsonify, send_file # type: ignore
 import os
 import sys
+import traceback
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'code')))
 
 from demo import run_from_args # type: ignore
 from werkzeug.utils import secure_filename
+
+#suppress warning and errors
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 
 app = Flask(__name__)
@@ -51,7 +58,9 @@ def generate_video():
         'stage2_checkpoint_path': 'ckpts/stage2_audio_only_hubert.ckpt',
         'test_image_path': image_path,
         'test_audio_path': audio_path, 
-        'result_path' : result_path
+        'test_hubert_path': '',
+        'result_path' : result_path,
+        'device' : 'cpu',
     }
 
 
@@ -59,6 +68,7 @@ def generate_video():
         print("Generating Video...")
         run_from_args(args)
     except Exception as e:
+        traceback.print_exc()
         return jsonify({'error': f'Video generation failed: {str(e)}'}), 500
 
 

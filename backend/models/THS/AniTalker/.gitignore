@@ -16,3 +16,4 @@ espnet
 *.dat
 
 ckpts/
+outputs/

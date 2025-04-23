@@ -6,18 +6,19 @@ from PIL import Image
 from tqdm import tqdm
 import argparse
 import numpy as np
-from torchvision import transforms
+from torchvision import transforms # type: ignore
 from templates import *
 import argparse
 import shutil
-from moviepy.editor import *
-import librosa
-import python_speech_features
+from moviepy.editor import * # type: ignore
+import librosa # type: ignore
+import python_speech_features # type: ignore
 import importlib.util
 import time
 
 def check_package_installed(package_name):
     package_spec = importlib.util.find_spec(package_name)
+    print("Packages installing...")
     if package_spec is None:
         print(f"{package_name} is not installed.")
         return False
@@ -27,18 +28,20 @@ def check_package_installed(package_name):
 
 def frames_to_video(input_path, audio_path, output_path, fps=25):
     image_files = [os.path.join(input_path, img) for img in sorted(os.listdir(input_path))]
-    clips = [ImageClip(m).set_duration(1/fps) for m in image_files]
-    video = concatenate_videoclips(clips, method="compose")
+    clips = [ImageClip(m).set_duration(1/fps) for m in image_files] # type: ignore
+    video = concatenate_videoclips(clips, method="compose") # type: ignore
 
-    audio = AudioFileClip(audio_path)
+    audio = AudioFileClip(audio_path) # type: ignore
     final_video = video.set_audio(audio)
     final_video.write_videofile(output_path, fps=fps, codec='libx264', audio_codec='aac')
+    print("Frames Generated...")
 
 def load_image(filename, size):
     img = Image.open(filename).convert('RGB')
     img = img.resize((size, size))
     img = np.asarray(img)
     img = np.transpose(img, (2, 0, 1))  # 3 x 256 x 256
+    print("Image loaded...")
     return img / 255.0
 
 def img_preprocessing(img_path, size):
@@ -49,7 +52,7 @@ def img_preprocessing(img_path, size):
 
 def saved_image(img_tensor, img_path):
     toPIL = transforms.ToPILImage()
-    img = toPIL(img_tensor.detach().cpu().squeeze(0))  # 使用squeeze(0)来移除批次维度
+    img = toPIL(img_tensor.detach().cpu().squeeze(0))
     img.save(img_path)
 
 def main(args):
@@ -60,12 +63,14 @@ def main(args):
     predicted_video_256_path = os.path.join(args.result_path,  f'{test_image_name}-{audio_name}.mp4')
     predicted_video_512_path = os.path.join(args.result_path,  f'{test_image_name}-{audio_name}_SR.mp4')
  
+    print("\nStage-1.1 loading ")
     #======Loading Stage 1 model=========
     lia = LIA_Model(motion_dim=args.motion_dim, fusion_type='weighted_sum')
     lia.load_lightning_model(args.stage1_checkpoint_path)
     lia.to(args.device)
     #============================
 
+    print("\nStage-1.2 loading ")
     conf = ffhq256_autoenc()
     conf.seed = args.seed
     conf.decoder_layers = args.decoder_layers
@@ -112,16 +117,16 @@ def main(args):
     img_source = img_preprocessing(args.test_image_path, args.image_size).to(args.device)
     one_shot_lia_start, one_shot_lia_direction, feats = lia.get_start_direction_code(img_source, img_source, img_source, img_source)
 
-
+    print("\nStage-2.1 loading ")
     #======Loading Stage 2 model=========
     model = LitModel(conf)
-    state = torch.load(args.stage2_checkpoint_path, map_location='cpu')
+    state = torch.load(args.stage2_checkpoint_path, map_location='cpu', weights_only=True)
     model.load_state_dict(state, strict=True)
     model.ema_model.eval()
     model.ema_model.to(args.device);
     #=================================
     
-    
+    print("\nStage-2.2 loading ")
     #======Audio Input=========
     if conf.infer_type.startswith('mfcc'):
         # MFCC features
@@ -251,14 +256,14 @@ def main(args):
 
     if args.face_sr and check_package_installed('gfpgan'):
         from face_sr.face_enhancer import enhancer_list
-        import imageio
+        import imageio # type: ignore
 
         # Super-resolution
         imageio.mimsave(predicted_video_512_path+'.tmp.mp4', enhancer_list(predicted_video_256_path, method='gfpgan', bg_upsampler=None), fps=float(25))
         
         # Merge audio and video
-        video_clip = VideoFileClip(predicted_video_512_path+'.tmp.mp4')
-        audio_clip = AudioFileClip(predicted_video_256_path)
+        video_clip = VideoFileClip(predicted_video_512_path+'.tmp.mp4') # type: ignore
+        audio_clip = AudioFileClip(predicted_video_256_path) # type: ignore
         final_clip = video_clip.set_audio(audio_clip)
         final_clip.write_videofile(predicted_video_512_path, codec='libx264', audio_codec='aac')
         

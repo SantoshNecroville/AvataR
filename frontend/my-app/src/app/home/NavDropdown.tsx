@@ -1,11 +1,10 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { useTheme } from 'next-themes';
 
 import {
   ImageIcon, PenTool, Settings, ChevronDown, Sparkles,
-  Camera, UserPlus, Palette, Sliders, Shield, CloudCog
+  Camera, UserPlus, Palette, Sliders, Shield
 } from 'lucide-react';
 
 type SubItem = {
@@ -26,7 +25,6 @@ type ItemType = {
 const NavDropdown = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
-  const { theme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
