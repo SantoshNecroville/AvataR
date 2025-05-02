@@ -216,7 +216,7 @@ const Navbar = () => {
             >
               <MobileNavLink href="/" icon={<Home size={16} />} text="Home" />
               <MobileNavLink
-                href="#"
+                href="/gallery"
                 icon={<ImageIcon size={16} />}
                 text="Gallery"
               />

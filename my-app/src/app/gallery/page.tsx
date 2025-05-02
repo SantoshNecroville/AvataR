@@ -51,7 +51,7 @@ const GalleryPage = () => {
           <div className="hidden lg:flex items-center gap-6">
             <Link href="/gallery/collections" className={`${theme === 'dark' ? 'hover:text-purple-300' : 'hover:text-purple-600'} transition-colors`}>Collections</Link>
             <Link href="/gallery/trending" className={`${theme === 'dark' ? 'hover:text-purple-300' : 'hover:text-purple-600'} transition-colors`}>Trending</Link>
-            <Link href="/gallery/featured/create">
+            <Link href="/dashboard">
               <button className="px-5 py-2 bg-purple-600 hover:bg-purple-700 rounded-full text-white font-medium shadow-md hover:shadow-purple-500/20 transition-all">Create Avatar</button>
             </Link>
             {/* Theme Toggle for Desktop */}
@@ -144,7 +144,7 @@ const GalleryPage = () => {
               Explore Images →
             </button>
           </Link>
-          <Link href="/gallery/featured/create">
+          <Link href="/dashboard">
             <button className={`px-8 py-4 ${
               theme === 'dark' 
                 ? 'bg-white/10 hover:bg-white/20 border border-purple-300/30' 
