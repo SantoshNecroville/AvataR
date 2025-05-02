@@ -26,7 +26,7 @@ const CallToAction: React.FC = () => {
             </a>
             
             <a 
-              href="#demo" 
+              href="/demo" 
               className="px-8 py-3 bg-transparent text-white font-medium rounded-md shadow-md hover:shadow-lg border border-white/30 hover:bg-white/10 transition-all duration-300"
             >
               See Live Demo

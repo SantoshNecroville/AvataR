@@ -9,9 +9,9 @@ def main(args):
 def get_arg_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--infer_type', type=str, default='mfcc_pose_only', help='mfcc_pose_only or mfcc_full_control')
-    parser.add_argument('--test_image_path', type=str, default='./test_demos/portraits/monalisa.jpg', help='Path to the portrait')
-    parser.add_argument('--test_audio_path', type=str, default='./test_demos/audios/english_female.wav', help='Path to the driven audio')
-    parser.add_argument('--test_hubert_path', type=str, default='./test_demos/audios_hubert/english_female.npy', help='Path to the driven audio(hubert type). Not needed for MFCC')
+    parser.add_argument('--test_image_path', type=str, help='Path to the portrait')
+    parser.add_argument('--test_audio_path', type=str, help='Path to the driven audio')
+    parser.add_argument('--test_hubert_path', type=str, help='Path to the driven audio(hubert type). Not needed for MFCC')
     parser.add_argument('--result_path', type=str, default='./results/', help='Type of inference')
     parser.add_argument('--stage1_checkpoint_path', type=str, default='./ckpts/stage1.ckpt', help='Path to the checkpoint of Stage1')
     parser.add_argument('--stage2_checkpoint_path', type=str, default='./ckpts/pose_only.ckpt', help='Path to the checkpoint of Stage2')

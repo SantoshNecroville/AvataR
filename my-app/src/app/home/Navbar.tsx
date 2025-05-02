@@ -17,6 +17,8 @@ import { useTheme } from "next-themes";
 import NavDropdown from "./NavDropdown";
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from "../user/store/authStore";
+import Image from "next/image";
+import Link from "next/link";
 
 
 type MobileNavLinkProps = {
@@ -103,12 +105,22 @@ const Navbar = () => {
           : "text-gray-800 bg-white/80"
       }`}
     >
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto p-6">
         <div className="flex justify-between items-center">
           {/* Logo and Title */}
-          <div className="flex items-center space-x-3 group">
-            <div className="relative w-12 h-12 overflow-hidden rounded-lg shadow-lg transition-all duration-300 group-hover:scale-105 bg-gradient-to-br from-purple-400 to-indigo-500">
+          <div className="flex items-center space-x-3 group scale-110">
+            <div className="relative w-12 h-12 overflow-hidden rounded-lg shadow-lg transition-all duration-300 group-hover:scale-115 bg-gradient-to-br from-purple-400 to-indigo-500">
               {/* Custom Logo Placeholder */}
+              <Link href="/demo">
+                <Image
+                  src="/ai.png"
+                  alt="Company Logo"
+                  width={40}
+                  height={40}
+                  className="mx-auto mt-2"
+                  priority
+                />
+              </Link>
             </div>
             <h1
               className="text-2xl font-light tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500 cursor-pointer transition-all duration-500 group-hover:from-purple-500 group-hover:to-indigo-600"
@@ -242,7 +254,7 @@ const NavLink = ({
   <a
     href={href}
     onClick={() => setActivePage(text)}
-    className="flex items-center space-x-3 text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 font-medium transition-colors px-3 py-2 rounded-full backdrop-blur-sm hover:shadow-sm group"
+    className="flex items-center space-x-3 text-black dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 font-medium transition-colors px-3 py-2 rounded-full backdrop-blur-sm hover:shadow-sm group"
   >
     <span className="text-purple-400 group-hover:text-indigo-500 transition-colors">
       {icon}

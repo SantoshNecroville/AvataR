@@ -5,6 +5,7 @@ import React from "react";
 import { Sparkles, Wand2, Shield, ZoomIn, Clock, Download } from "lucide-react";
 import { motion } from "framer-motion";
 
+
 interface FeatureCardProps {
   icon: React.ReactNode;
   title: string;
@@ -27,7 +28,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         duration: 0.6,
         delay: index * 0.1,
       }}
-      className="p-6 bg-white dark:bg-black rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-900 relative z-10 group hover:scale-[1.03]"
+      className="p-6 bg-white dark:bg-black rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-800 relative z-10 group hover:scale-[1.03]"
     >
       <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 mb-4 relative group-hover:scale-[1.21] transition-all ease-linear">
         {icon}

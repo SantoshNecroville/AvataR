@@ -5,6 +5,12 @@ from flask_cors import CORS
 from flask import send_file
 import os
 
+#suppress warning and errors
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
+
 app = Flask(__name__)
 CORS(app)
 
@@ -70,7 +76,7 @@ def run_inference():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=4321,debug=True)
     
     
     
