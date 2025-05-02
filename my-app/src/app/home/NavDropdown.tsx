@@ -19,6 +19,7 @@ type SubItem = {
   icon: React.ReactNode;
   title: string;
   description: string;
+  link: string;
 };
 
 type ItemType = {
@@ -50,6 +51,7 @@ const NavDropdown = () => {
           icon: <Camera size={16} />,
           title: "Explore",
           description: "View your saved persona reflections",
+          link: "/gallery",
         },
         //{ icon: <Sparkles size={16} />, title: "Collections", description: "Discover trending reflections" },
         //{ icon: <UserPlus size={16} />, title: "Shared With You", description: "Reflections shared by connections" }
@@ -66,11 +68,13 @@ const NavDropdown = () => {
           icon: <Palette size={16} />,
           title: "Create Avatar",
           description: "Create avatar video using image",
+          link: "/dashboard",
         },
         {
           icon: <Camera size={16} />,
           title: "Text To Speech",
-          description: "transform your text into speech",
+          description: "Transform your text into speech",
+          link: "/dashboard",
         },
         // { icon: <Sparkles size={16} />, title: "Emotion Templates", description: "Start with feeling-based presets" }
       ],
@@ -86,11 +90,13 @@ const NavDropdown = () => {
           icon: <Sliders size={16} />,
           title: "Preferences",
           description: "Customize your reflection settings",
+          link: "/settings/preferences",
         },
         {
           icon: <Shield size={16} />,
           title: "Privacy",
           description: "Control your digital boundaries",
+          link: "/settings/privacy",
         },
         // { icon: <CloudCog size={16} />, title: "Mirror Sync", description: "Manage your persona across devices" }
       ],
@@ -154,7 +160,7 @@ const NavDropdown = () => {
                   {item.items.map((subItem, index) => (
                     <a
                       key={index}
-                      href={`/${item.id}`}
+                      href={subItem.link || "#"}
                       onClick={() => console.log(item.id)}
                       className="flex items-start p-3 rounded-lg hover:bg-purple-50 dark:hover:bg-gray-800 transition-colors group"
                     >

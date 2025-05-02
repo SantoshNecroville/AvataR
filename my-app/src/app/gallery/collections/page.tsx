@@ -168,7 +168,7 @@ const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
         />
       </div>
 
-      {/* Navigation bar */}
+      {/* Navigation bar
       <nav className="relative z-10 bg-white bg-opacity-80 backdrop-blur-sm shadow-sm py-4 px-8 border-b border-gray-100">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center">
@@ -188,7 +188,7 @@ const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
             Get Started
           </Link>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Decorative background elements */}
       <div className="absolute top-40 left-10 w-64 h-64 bg-purple-200 rounded-full filter blur-3xl opacity-20 z-0"></div>
@@ -218,9 +218,7 @@ const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
               </p>
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-purple-200 rounded-full filter blur-3xl opacity-20 z-0"></div>
             </div>
-            <Link href="/create-avatar" className="bg-gradient-to-r from-purple-600 to-violet-500 hover:from-purple-700 hover:to-violet-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition-all duration-300 whitespace-nowrap">
-              Create Avatar
-            </Link>
+            
           </div>
           
           {/* Search and view controls */}
@@ -239,6 +237,11 @@ const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="bg-white bg-opacity-70 backdrop-blur-sm text-gray-900 rounded-xl w-full py-3 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-purple-400 border border-gray-200 shadow-sm"
               />
+            </div>
+            <div>
+            <Link href="/dashboard" className="bg-gradient-to-r from-purple-600 to-violet-500 hover:from-purple-700 hover:to-violet-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition-all duration-300 whitespace-nowrap">
+              Create Avatar
+            </Link>
             </div>
             <div className="flex space-x-2 bg-white bg-opacity-70 backdrop-blur-sm rounded-xl p-1 shadow-sm border border-gray-200">
               <button
