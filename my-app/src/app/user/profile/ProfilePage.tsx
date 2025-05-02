@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useAuthStore } from "../store/authStore";
 import { useRouter } from "next/navigation";
 
-const LogoutPage = () => {
+const ProfilePage = () => {
 	const { user, logout, checkAuth, isCheckingAuth } = useAuthStore();
 	const router = useRouter();
 
@@ -15,7 +15,7 @@ const LogoutPage = () => {
 
 	const handleLogout = () => {
 		logout();
-		router.push("/user/login");
+		router.push("/");
 	};
 
 	if (isCheckingAuth) {
@@ -71,7 +71,7 @@ const LogoutPage = () => {
 						onClick={handleLogout}
 						className='w-full py-3 px-4 bg-gradient-to-r from-purple-500 to-indigo-600 text-white 
 						font-bold rounded-lg shadow-lg hover:from-purple-600 hover:to-indigo-700
-						focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-white'
+						focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-white cursor-pointer'
 					>
 						Logout
 					</motion.button>
@@ -81,4 +81,4 @@ const LogoutPage = () => {
 	);
 };
 
-export default LogoutPage;
+export default ProfilePage;

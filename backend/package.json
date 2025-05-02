@@ -5,9 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./backendAuth/server.js",
-    "server1": "nodemon ./backendAuth/server.js",
-    "server2": "nodemon ./backendAuth/server2.js",
-    "dev": "concurrently \"npm run server1\" \"npm run server2\""
+    "server": "nodemon ./backendAuth/server.js",
+    "dev": "concurrently \"npm run server\""
   },
   "keywords": [],
   "author": "",

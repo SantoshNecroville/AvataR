@@ -25,7 +25,7 @@ const Hero1: React.FC = () => {
             
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a 
-                href="#signup" 
+                href="/dashboard" 
                 className="px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-md shadow-md hover:shadow-lg transition-all duration-300"
               >
                 Get Started

@@ -59,7 +59,7 @@ const NavDropdown = () => {
       id: 'settings',
       title: 'Settings',
       icon: <Settings size={18} />,
-      image: "/",
+      image: "/settings.jpg",
       description: "Personalize your mirror experience",
       items: [
         { icon: <Sliders size={16} />, title: "Preferences", description: "Customize your reflection settings" },

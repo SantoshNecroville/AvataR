@@ -15,6 +15,9 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import NavDropdown from "./NavDropdown";
+import { useRouter } from 'next/navigation';
+import { useAuthStore } from "../user/store/authStore";
+
 
 type MobileNavLinkProps = {
   href: string;
@@ -38,6 +41,12 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const router = useRouter();
+  const { user } = useAuthStore();
+
+  const handleStart = () => {
+    router.push('/dashboard');
+  };
 
   // Handle component mount for theme
   useEffect(() => {
@@ -133,10 +142,24 @@ const Navbar = () => {
               {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
             </button>
 
-            <button className="bg-gradient-to-r cursor-pointer from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-600 text-white px-5 py-2 rounded-full font-medium shadow-md flex items-center space-x-2 transition-all duration-300 hover:shadow-lg">
-              <LogIn size={16} />
-              <span>Get Started</span>
-            </button>
+            {user ? (
+              <button
+                onClick={() => router.push("/user/profile")}
+                className="bg-gradient-to-r cursor-pointer from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-600 text-white px-5 py-2 rounded-full font-medium shadow-md flex items-center space-x-2 transition-all duration-300 hover:shadow-lg"
+              >
+                <span>Profile</span>
+              </button>
+            ) : (
+              <button
+                onClick={handleStart}
+                className="bg-gradient-to-r cursor-pointer from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-600 text-white px-5 py-2 rounded-full font-medium shadow-md flex items-center space-x-2 transition-all duration-300 hover:shadow-lg"
+              >
+                <LogIn size={16} />
+                <span>Get Started</span>
+              </button>
+            )}
+
+            
           </div>
 
           {/* Mobile Menu Controls */}
