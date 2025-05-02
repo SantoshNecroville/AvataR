@@ -6,7 +6,7 @@ import SignUpPage from "./signup/SignUpPage";
 import LoginPage from "./login/LoginPage";
 import ForgotPasswordPage from "./forgot-password/ForgotPasswordPage";
 import ResetPasswordPage from "./reset-password/ResetPasswordPage";
-import HomePage from "./logout/LogoutPage";
+import HomePage from "./profile/ProfilePage";
 
 import LoadingSpinner from "./components/LoadingSpinner";
 

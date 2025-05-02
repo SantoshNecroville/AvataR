@@ -11,6 +11,9 @@ import {
 } from "lucide-react";
 import TextToAudio from "./TextToAudio";
 import FrontPage from "./FrontPage";
+import { useAuthStore } from "../user/store/authStore";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // Create theme context
 const ThemeContext = createContext({
@@ -103,6 +106,9 @@ function FloatingSidebar() {
   const [currentItem, setCurrentItem] = useState("createAvatar");
   const [isMobile, setIsMobile] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  
+  const {user, checkAuth, isCheckingAuth} = useAuthStore();
+  const router = useRouter();
 
   // Check if device is mobile
   useEffect(() => {
@@ -131,6 +137,23 @@ function FloatingSidebar() {
       if (timeout) clearTimeout(timeout);
     };
   }, [expanded]);
+
+  useEffect(() => {
+		checkAuth(); // refetch auth status from backend
+	}, []);
+
+  useEffect(() => {
+    if (!isCheckingAuth && !user) {
+      router.replace("/user/login");
+    }
+  }, [isCheckingAuth, user]);
+
+  if (isCheckingAuth) {
+		return (
+			<div className="text-center mt-10 font-bold text-purple-500">Checking session...</div>
+		);
+	}
+  if (!user) return null;
 
   const handleMouseEnter = () => {
     if (!isMobile) {
@@ -187,7 +210,7 @@ function FloatingSidebar() {
             </div>
             {expanded && textVisible && (
               <span className="text-2xl font-bold ml-2 cursor-pointer text-white transition-all duration-300 ease-in-out">
-                Username
+                {user.name}
               </span>
             )}
           </div>
