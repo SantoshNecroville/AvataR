@@ -5,176 +5,82 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const AvatarGallery = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [currentAudio, setCurrentAudio] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [viewMode, setViewMode] = useState('grid');
-  const [selectedAvatar, setSelectedAvatar] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(null);
+const [searchQuery, setSearchQuery] = useState('');
+const [selectedCategory, setSelectedCategory] = useState('All');
+const [currentAudio, setCurrentAudio] = useState<string | null>(null);
+const [isPlaying, setIsPlaying] = useState(false);
+const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null);
+const audioRef = useRef<HTMLAudioElement>(null);
+const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
-  // Avatar data
+  
+ 
   const avatars = [
-    {
-      name: 'Builder',
-      src: '/avatars/builder.png',
-      text: 'Visionary creator of worlds.',
-      audio: '/audio/builder.mp3',
-      category: 'Creator',
-      description: 'The Builder constructs realities and reshapes landscapes with innovative vision and meticulous attention to detail.'
-    },
-    {
-      name: 'Guardian',
-      src: '/avatars/guardian.png',
-      text: 'Protector of ancient secrets.',
-      audio: '/audio/guardian.mp3',
-      category: 'Defender',
-      description: 'Standing vigilant, the Guardian safeguards knowledge and treasures from those who would misuse them.'
-    },
-    {
-      name: 'Hacker',
-      src: '/avatars/hacker.png',
-      text: 'Master of digital realms.',
-      audio: '/audio/hacker.mp3',
-      category: 'Tech',
-      description: 'With keystrokes as weapons, the Hacker navigates the complex networks of cyberspace.'
-    },
-    {
-      name: 'Knight',
-      src: '/avatars/knight.png',
-      text: 'Noble warrior of justice.',
-      audio: '/audio/knight.mp3',
-      category: 'Warrior',
-      description: 'Clad in armor forged from honor, the Knight fights for those who cannot defend themselves.'
-    },
-    {
-      name: 'Mage',
-      src: '/avatars/mage.png',
-      text: 'Weaver of arcane magic.',
-      audio: '/audio/mage.mp3',
-      category: 'Magic',
-      description: 'The Mage channels primordial energies to bend reality itself to their will.'
-    },
-    {
-      name: 'Monk',
-      src: '/avatars/monk.png',
-      text: 'Disciplined soul of balance.',
-      audio: '/audio/monk.mp3',
-      category: 'Spiritual',
-      description: 'Through meditation and self-discipline, the Monk achieves harmony between mind, body, and spirit.'
-    },
-    {
-      name: 'Ninja',
-      src: '/avatars/ninja.png',
-      text: 'Silent shadow of the night.',
-      audio: '/audio/ninja.mp3',
-      category: 'Warrior',
-      description: 'Moving unseen through darkness, the Ninja strikes with precision and disappears without a trace.'
-    },
-    {
-      name: 'Queen',
-      src: '/avatars/queen.png',
-      text: 'Ruler with fierce grace.',
-      audio: '/audio/queen.mp3',
-      category: 'Royalty',
-      description: 'The Queen commands respect through wisdom, strategy, and unwavering determination.'
-    },
-    {
-      name: 'Sage',
-      src: '/avatars/sage.png',
-      text: 'Wise mind of the ancients.',
-      audio: '/audio/sage.mp3',
-      category: 'Spiritual',
-      description: 'Drawing from lifetimes of knowledge, the Sage offers guidance to those seeking enlightenment.'
-    },
-    {
-      name: 'Samurai',
-      src: '/avatars/samurai.png',
-      text: 'Honor-bound blade master.',
-      audio: '/audio/samurai.mp3',
-      category: 'Warrior',
-      description: 'The Samurai lives by a strict code of honor, mastering both combat and inner discipline.'
-    },
-    {
-      name: 'Space',
-      src: '/avatars/space.png',
-      text: 'Explorer of galaxies.',
-      audio: '/audio/space.mp3',
-      category: 'Explorer',
-      description: 'Venturing into the unknown, the Space Explorer maps the mysteries of distant stars and planets.'
-    },
-    {
-      name: 'Wizard',
-      src: '/avatars/wizard.png',
-      text: 'Master of cosmic spells.',
-      audio: '/audio/wizard.mp3',
-      category: 'Magic',
-      description: 'With ancient tomes and potent incantations, the Wizard manipulates the fundamental forces of existence.'
-    },
+    { id: 'builder', name: 'Builder', src: '/avatars/builder.png', text: 'Visionary creator of worlds.', audio: '/audio/builder.mp3', category: 'Creator', description: 'The Builder constructs realities and reshapes landscapes with innovative vision and meticulous attention to detail.' },
+    { id: 'guardian', name: 'Guardian', src: '/avatars/guardian.png', text: 'Protector of ancient secrets.', audio: '/audio/guardian.mp3', category: 'Defender', description: 'Standing vigilant, the Guardian safeguards knowledge and treasures from those who would misuse them.' },
+    { id: 'hacker', name: 'Hacker', src: '/avatars/hacker.png', text: 'Master of digital realms.', audio: '/audio/hacker.mp3', category: 'Tech', description: 'With keystrokes as weapons, the Hacker navigates the complex networks of cyberspace.' },
+    { id: 'knight', name: 'Knight', src: '/avatars/knight.png', text: 'Noble warrior of justice.', audio: '/audio/knight.mp3', category: 'Warrior', description: 'Clad in armor forged from honor, the Knight fights for those who cannot defend themselves.' },
+    { id: 'mage', name: 'Mage', src: '/avatars/mage.png', text: 'Weaver of arcane magic.', audio: '/audio/mage.mp3', category: 'Magic', description: 'The Mage channels primordial energies to bend reality itself to their will.' },
+    { id: 'queen', name: 'Queen', src: '/avatars/monk.png', text: 'Disciplined soul of balance.', audio: '/audio/queen.mp3', category: 'Spiritual', description: 'Through meditation and self-discipline, the Monk achieves harmony between mind, body, and spirit.' },
+    { id: 'ninja', name: 'Ninja', src: '/avatars/ninja.png', text: 'Silent shadow of the night.', audio: '/audio/ninja.mp3', category: 'Warrior', description: 'Moving unseen through darkness, the Ninja strikes with precision and disappears without a trace.' },
+    { id: 'monk', name: 'Monk', src: '/avatars/queen.png', text: 'Ruler with fierce grace.', audio: '/audio/monk.mp3', category: 'Royalty', description: 'The Queen commands respect through wisdom, strategy, and unwavering determination.' },
+    { id: 'sage', name: 'Sage', src: '/avatars/sage.png', text: 'Wise mind of the ancients.', audio: '/audio/sage.mp3', category: 'Spiritual', description: 'Drawing from lifetimes of knowledge, the Sage offers guidance to those seeking enlightenment.' },
+    { id: 'samurai', name: 'Samurai', src: '/avatars/samurai.png', text: 'Honor-bound blade master.', audio: '/audio/samurai.mp3', category: 'Warrior', description: 'The Samurai lives by a strict code of honor, mastering both combat and inner discipline.' },
+    { id: 'space', name: 'Space', src: '/avatars/space.png', text: 'Explorer of galaxies.', audio: '/audio/space.mp3', category: 'Explorer', description: 'Venturing into the unknown, the Space Explorer maps the mysteries of distant stars and planets.' },
+    { id: 'wizard', name: 'Wizard', src: '/avatars/wizard.png', text: 'Master of cosmic spells.', audio: '/audio/wizard.mp3', category: 'Magic', description: 'With ancient tomes and potent incantations, the Wizard manipulates the fundamental forces of existence.' },
   ];
 
-  // Extract unique categories
   const categories = ['All', ...new Set(avatars.map(avatar => avatar.category))];
 
-  // Audio playback controls - Fixed
-  const toggleAudio = (audioSrc, avatarName) => {
-    // Ensure we check if audioRef.current exists first
-    if (!audioRef.current) return;
-
-    // If the same audio is already playing, pause it
-    if (currentAudio === audioSrc && isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-      return;
-    }
-
-    // If audio is already playing, pause it and reset
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-
-    // Set new audio source and update state
-    setCurrentAudio(audioSrc);
-    setIsPlaying(true);
-
-    // Use timeout to ensure the audio source is set before playing
-    setTimeout(() => {
-      if (audioRef.current) {
-        audioRef.current.play().catch(error => {
-          console.error("Audio playback failed:", error);
-          setIsPlaying(false);
-        });
-      }
-    }, 100);
-  };
-
-  // Cleanup effect for audio when component unmounts
   useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleEnded = () => setIsPlaying(false);
+    const handleError = (error: any) => {
+      console.error("Audio error:", error);
+      setIsPlaying(false);
+    };
+
+    audio.addEventListener("ended", handleEnded);
+    audio.addEventListener("error", handleError);
+
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
+      audio.removeEventListener("ended", handleEnded);
+      audio.removeEventListener("error", handleError);
+      if (!audio.paused) audio.pause();
+      audio.currentTime = 0;
     };
   }, []);
 
-  // Handle audio ended event
-  useEffect(() => {
-    const handleAudioEnded = () => {
-      setIsPlaying(false);
-    };
+  const toggleAudio = async (audioSrc: string) => {
+    const audio = audioRef.current;
+    if (!audio) return;
 
-    const audioElement = audioRef.current;
-    if (audioElement) {
-      audioElement.addEventListener('ended', handleAudioEnded);
+    if (currentAudio === audioSrc && isPlaying) {
+      audio.pause();
+      audio.currentTime = 0;
+      setIsPlaying(false);
+      setCurrentAudio(null);
+      return;
     }
 
-    return () => {
-      if (audioElement) {
-        audioElement.removeEventListener('ended', handleAudioEnded);
-      }
-    };
-  }, [audioRef.current]); // Fixed dependency to properly reattach listener
+    audio.pause();
+    audio.currentTime = 0;
+    setIsPlaying(false);
+
+    try {
+      audio.src = audioSrc;
+      await audio.play();
+      setIsPlaying(true);
+      setCurrentAudio(audioSrc);
+    } catch (error) {
+      console.error("Playback failed:", error);
+      setIsPlaying(false);
+      setCurrentAudio(null);
+    }
+  };
+  
 
   // Filter avatars
   const filteredAvatars = avatars
@@ -185,27 +91,13 @@ const AvatarGallery = () => {
       avatar.category.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-  // Generate random stats
-  const generateRandomStat = () => {
-    const stats = [
-      { value: `${Math.floor(Math.random() * 50) + 30}%`, label: 'Lower exit rates' },
-      { value: `${(Math.random() * 5 + 1).toFixed(1)}x`, label: 'Returning visitor rate' },
-      { value: `${Math.floor(Math.random() * 60) + 20}%`, label: 'Time saved on calls' },
-      { value: `${(Math.random() * 10 + 1).toFixed(1)}x`, label: 'Faster onboarding' }
-    ];
-
-    return [
-      stats[Math.floor(Math.random() * stats.length)],
-      stats[Math.floor(Math.random() * stats.length)]
-    ];
-  };
-
   // Avatar detail modal
   const AvatarDetailModal = () => {
     if (!selectedAvatar) return null;
-    const avatar = avatars.find(a => a.name === selectedAvatar);
+    
+    // Find the avatar by ID instead of name for more reliable lookup
+    const avatar = avatars.find(a => a.id === selectedAvatar || a.name === selectedAvatar);
     if (!avatar) return null;
-    const stats = generateRandomStat();
 
     return (
       <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
@@ -237,22 +129,9 @@ const AvatarGallery = () => {
             </div>
             <p className="text-purple-600 italic mb-4 text-lg">{avatar.text}</p>
             <p className="text-gray-600 mb-8 text-lg">{avatar.description}</p>
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              {stats.map((stat, i) => (
-                <div key={i} className="bg-purple-50 p-4 rounded-xl border border-purple-100">
-                  <div className="flex items-center mb-1">
-                    <svg className="text-purple-600 mr-2" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                      <path d="M18 15L12 9L6 15" stroke="currentColor" strokeWidth="2" />
-                    </svg>
-                    <span className="text-purple-600 font-bold text-lg">{stat.value}</span>
-                  </div>
-                  <span className="text-sm text-gray-600">{stat.label}</span>
-                </div>
-              ))}
-            </div>
             <div className="flex justify-center">
               <button
-                onClick={() => toggleAudio(avatar.audio, avatar.name)}
+                onClick={() => toggleAudio(avatar.audio)}
                 className="flex items-center bg-purple-600 hover:bg-purple-700 transition-all duration-300 px-6 py-3 rounded-xl text-white font-semibold shadow-lg"
               >
                 {currentAudio === avatar.audio && isPlaying ? (
@@ -281,7 +160,7 @@ const AvatarGallery = () => {
 
   return (
     <div className="min-h-screen relative">
-      {/* Enhanced background with image overlay - Fixed backgroundImage syntax */}
+      {/* Enhanced background with image overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-white z-0">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-35"
@@ -289,7 +168,7 @@ const AvatarGallery = () => {
         />
       </div>
 
-      {/* Navigation bar */}
+      {/* Navigation bar
       <nav className="relative z-10 bg-white bg-opacity-80 backdrop-blur-sm shadow-sm py-4 px-8 border-b border-gray-100">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center">
@@ -309,7 +188,7 @@ const AvatarGallery = () => {
             Get Started
           </Link>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Decorative background elements */}
       <div className="absolute top-40 left-10 w-64 h-64 bg-purple-200 rounded-full filter blur-3xl opacity-20 z-0"></div>
@@ -318,8 +197,8 @@ const AvatarGallery = () => {
       
       {/* Main content with positioning relative to decorative elements */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
-        {/* Fixed the audio element to always have a source */}
-        <audio ref={audioRef} src={currentAudio || ''} onEnded={() => setIsPlaying(false)} />
+        {/* Audio element */}
+        <audio ref={audioRef} preload="auto"></audio>
         
         {/* Enhanced Page header with visual elements */}
         <div className="mb-12 relative">
@@ -339,9 +218,7 @@ const AvatarGallery = () => {
               </p>
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-purple-200 rounded-full filter blur-3xl opacity-20 z-0"></div>
             </div>
-            <Link href="/create-avatar" className="bg-gradient-to-r from-purple-600 to-violet-500 hover:from-purple-700 hover:to-violet-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition-all duration-300 whitespace-nowrap">
-              Create Avatar
-            </Link>
+            
           </div>
           
           {/* Search and view controls */}
@@ -360,6 +237,11 @@ const AvatarGallery = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="bg-white bg-opacity-70 backdrop-blur-sm text-gray-900 rounded-xl w-full py-3 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-purple-400 border border-gray-200 shadow-sm"
               />
+            </div>
+            <div>
+            <Link href="/dashboard" className="bg-gradient-to-r from-purple-600 to-violet-500 hover:from-purple-700 hover:to-violet-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition-all duration-300 whitespace-nowrap">
+              Create Avatar
+            </Link>
             </div>
             <div className="flex space-x-2 bg-white bg-opacity-70 backdrop-blur-sm rounded-xl p-1 shadow-sm border border-gray-200">
               <button
@@ -420,138 +302,49 @@ const AvatarGallery = () => {
         {/* Avatar display - Grid View */}
         {viewMode === 'grid' && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredAvatars.map((avatar) => {
-              const stats = generateRandomStat();
-
-              return (
-                <div
-                  key={avatar.name}
-                  className="bg-white bg-opacity-70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer border border-gray-100"
-                  onClick={() => setSelectedAvatar(avatar.name)}
-                >
-                  <div className="relative w-full h-56 bg-gradient-to-b from-purple-50 to-white">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative w-32 h-32">
-                        <Image
-                          src={avatar.src}
-                          alt={avatar.name}
-                          width={128}
-                          height={128}
-                          className="object-cover rounded-full shadow-lg border-2 border-white"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex justify-between items-center mb-2">
-                      <h3 className="text-xl font-bold text-gray-900">{avatar.name}</h3>
-                      <span className="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full">{avatar.category}</span>
-                    </div>
-                    <p className="text-purple-600 italic mb-4">{avatar.text}</p>
-                    <div className="grid grid-cols-2 gap-3 mt-4">
-                      {stats.map((stat, i) => (
-                        <div key={i} className="bg-purple-50 p-3 rounded-xl border border-purple-100">
-                          <div className="flex items-center mb-1">
-                            <svg className="text-purple-600 mr-1" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                              <path d="M18 15L12 9L6 15" stroke="currentColor" strokeWidth="2" />
-                            </svg>
-                            <span className="text-purple-600 font-bold">{stat.value}</span>
-                          </div>
-                          <span className="text-xs text-gray-600">{stat.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleAudio(avatar.audio, avatar.name);
-                      }}
-                      className="mt-4 w-full flex items-center justify-center bg-white border border-purple-200 hover:bg-purple-50 transition-colors text-purple-600 px-4 py-2 rounded-xl font-medium"
-                    >
-                      {currentAudio === avatar.audio && isPlaying ? (
-                        <>
-                          <svg width="16" height="16" stroke="currentColor" fill="none" className="mr-2">
-                            <rect x="6" y="4" width="4" height="16" />
-                            <rect x="14" y="4" width="4" height="16" />
-                          </svg>
-                          Pause Voice
-                        </>
-                      ) : (
-                        <>
-                          <svg width="16" height="16" stroke="currentColor" fill="none" className="mr-2">
-                            <polygon points="5 3 19 12 5 21 5 3" />
-                          </svg>
-                          Play Voice
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
-
-        {/* Avatar display - List View */}
-        {viewMode === 'list' && (
-          <div className="space-y-6">
-            {filteredAvatars.map((avatar) => {
-              const stats = generateRandomStat();
-
-              return (
-                <div
-                  key={avatar.name}
-                  className="bg-white bg-opacity-70 backdrop-blur-sm rounded-2xl shadow-lg flex flex-col md:flex-row items-center p-6 cursor-pointer hover:shadow-xl transition-all duration-300 border border-gray-100"
-                  onClick={() => setSelectedAvatar(avatar.name)}
-                >
-                  <div className="relative w-28 h-28 md:w-24 md:h-24 flex-shrink-0 mb-4 md:mb-0">
-                    <div className="w-full h-full rounded-full overflow-hidden border-2 border-purple-100 shadow-lg">
+            {filteredAvatars.map((avatar) => (
+              <div
+                key={avatar.id}
+                className="bg-white bg-opacity-70 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer border border-gray-100"
+                onClick={() => setSelectedAvatar(avatar.id)}
+              >
+                <div className="relative w-full h-56 bg-gradient-to-b from-purple-50 to-white">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative w-32 h-32">
                       <Image
                         src={avatar.src}
                         alt={avatar.name}
-                        fill
-                        className="object-cover"
+                        width={128}
+                        height={128}
+                        className="object-cover rounded-full shadow-lg border-2 border-white"
                       />
                     </div>
                   </div>
-                  <div className="md:ml-6 flex-grow text-center md:text-left">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                      <h3 className="text-2xl font-bold text-gray-900">{avatar.name}</h3>
-                      <span className="inline-block bg-purple-100 text-purple-700 text-xs px-3 py-1 rounded-full mt-1 md:mt-0">{avatar.category}</span>
-                    </div>
-                    <p className="text-purple-600 italic mb-4">{avatar.text}</p>
-                    <div className="grid grid-cols-2 gap-3">
-                      {stats.map((stat, i) => (
-                        <div key={i} className="bg-purple-50 p-3 rounded-xl border border-purple-100">
-                          <div className="flex items-center mb-1">
-                            <svg className="text-purple-600 mr-1" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                              <path d="M18 15L12 9L6 15" stroke="currentColor" strokeWidth="2" />
-                            </svg>
-                            <span className="text-purple-600 font-bold">{stat.value}</span>
-                          </div>
-                          <span className="text-xs text-gray-600">{stat.label}</span>
-                        </div>
-                      ))}
-                    </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex justify-between items-center mb-2">
+                    <h3 className="text-xl font-bold text-gray-900">{avatar.name}</h3>
+                    <span className="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full">{avatar.category}</span>
                   </div>
+                  <p className="text-purple-600 italic mb-4">{avatar.text}</p>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      toggleAudio(avatar.audio, avatar.name);
+                      toggleAudio(avatar.audio);
                     }}
-                    className="mt-4 md:mt-0 md:ml-6 flex items-center justify-center bg-white hover:bg-purple-50 border border-purple-200 transition-colors text-purple-600 px-4 py-2 rounded-xl font-medium"
+                    className="mt-4 w-full flex items-center justify-center bg-white border border-purple-200 hover:bg-purple-50 transition-colors text-purple-600 px-4 py-2 rounded-xl font-medium"
                   >
                     {currentAudio === avatar.audio && isPlaying ? (
                       <>
-                        <svg width="18" height="18" stroke="currentColor" fill="none" className="mr-2">
+                        <svg width="16" height="16" stroke="currentColor" fill="none" className="mr-2">
                           <rect x="6" y="4" width="4" height="16" />
                           <rect x="14" y="4" width="4" height="16" />
                         </svg>
-                        Pause
+                        Pause Voice
                       </>
                     ) : (
                       <>
-                        <svg width="18" height="18" stroke="currentColor" fill="none" className="mr-2">
+                        <svg width="16" height="16" stroke="currentColor" fill="none" className="mr-2">
                           <polygon points="5 3 19 12 5 21 5 3" />
                         </svg>
                         Play Voice
@@ -559,8 +352,65 @@ const AvatarGallery = () => {
                     )}
                   </button>
                 </div>
-              );
-            })}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Avatar display - List View */}
+        {viewMode === 'list' && (
+          <div className="space-y-6">
+            {filteredAvatars.map((avatar) => (
+              <div
+                key={avatar.id}
+                className="bg-white bg-opacity-70 backdrop-blur-sm rounded-2xl shadow-lg flex flex-col md:flex-row items-center p-6 cursor-pointer hover:shadow-xl transition-all duration-300 border border-gray-100"
+                onClick={() => setSelectedAvatar(avatar.id)}
+              >
+                <div className="relative w-28 h-28 md:w-24 md:h-24 flex-shrink-0 mb-4 md:mb-0">
+                  <div className="w-full h-full rounded-full overflow-hidden border-2 border-purple-100 shadow-lg">
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={avatar.src}
+                        alt={avatar.name}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="md:ml-6 flex-grow text-center md:text-left">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900">{avatar.name}</h3>
+                    <span className="inline-block bg-purple-100 text-purple-700 text-xs px-3 py-1 rounded-full mt-1 md:mt-0">{avatar.category}</span>
+                  </div>
+                  <p className="text-purple-600 italic mb-4">{avatar.text}</p>
+                </div>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleAudio(avatar.audio);
+                  }}
+                  className="mt-4 md:mt-0 md:ml-6 flex items-center justify-center bg-white hover:bg-purple-50 border border-purple-200 transition-colors text-purple-600 px-4 py-2 rounded-xl font-medium"
+                >
+                  {currentAudio === avatar.audio && isPlaying ? (
+                    <>
+                      <svg width="18" height="18" stroke="currentColor" fill="none" className="mr-2">
+                        <rect x="6" y="4" width="4" height="16" />
+                        <rect x="14" y="4" width="4" height="16" />
+                      </svg>
+                      Pause
+                    </>
+                  ) : (
+                    <>
+                      <svg width="18" height="18" stroke="currentColor" fill="none" className="mr-2">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                      </svg>
+                      Play Voice
+                    </>
+                  )}
+                </button>
+              </div>
+            ))}
           </div>
         )}
 
