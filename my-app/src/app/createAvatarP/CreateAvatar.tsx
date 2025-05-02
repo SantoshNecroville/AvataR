@@ -46,7 +46,6 @@ export default function UploadContentForm() {
   const [audioChunks, setAudioChunks] = useState<BlobPart[]>([])
   const [videoCaptureActive, setVideoCaptureActive] = useState(false)
   
-  // Add state for output video
   const [outputVideo, setOutputVideo] = useState<string | null>(null)
   const [processingVideo, setProcessingVideo] = useState(false)
 
@@ -60,7 +59,6 @@ export default function UploadContentForm() {
     minute: "2-digit",
   })
 
-  // Image functions
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (!file) return
@@ -137,7 +135,6 @@ export default function UploadContentForm() {
     }
   }
 
-  // Audio functions
   const handleAudioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (!file) return
@@ -180,7 +177,6 @@ export default function UploadContentForm() {
         setAudioUrl(url)
         setRecordingAudio(false)
 
-        // Stop all audio tracks
         stream.getAudioTracks().forEach(track => track.stop())
       }
 
@@ -240,44 +236,25 @@ export default function UploadContentForm() {
     setProcessingVideo(true)
     
     try {
-      // Text to Audio API call
-      const T2A = new FormData();
-      T2A.append('text', text)
-      if (audio) T2A.append('audio', audio)
+      // Use the /inf endpoint to process everything in one request
+      const formData = new FormData();
+      formData.append('text', text);
+      if (image.image) formData.append('image', image.image);
+      if (audio) formData.append('audio', audio);
       
-      console.log("Sending text to audio request...")
-      const responseT2A = await fetch('http://127.0.0.1:1234/inf', {
+      console.log("Sending request to the /inf endpoint...");
+      const response = await fetch('http://127.0.0.1:1000/inf', {
         method: 'POST',
-        body: T2A
+        body: formData
       });
       
-      if (!responseT2A.ok) {
-        throw new Error(`Text to Audio API failed with status: ${responseT2A.status}`);
+      if (!response.ok) {
+        throw new Error(`API failed with status: ${response.status}`);
       }
       
-      const audioBlob = await responseT2A.blob();
-      console.log("Received audio response", audioBlob);
-      
-      // Avatar generation API call
-      const Avatar = new FormData();
-      if (image.image) Avatar.append('image', image.image)
-      if (audioBlob) Avatar.append('audio', audioBlob)
-      
-      console.log("Sending avatar generation request...")
-      const responseAvatar = await fetch("http://127.0.0.1:5000/run", {
-        method: 'POST',
-        body: Avatar
-      });
-      
-      if (!responseAvatar.ok) {
-        throw new Error(`Avatar API failed with status: ${responseAvatar.status}`);
-      }
-      
-      // Handle video response
-      const videoBlob = await responseAvatar.blob();
+      const videoBlob = await response.blob();
       console.log("Received video response", videoBlob);
       
-      // Create URL for video and set it to state
       if (outputVideo) {
         URL.revokeObjectURL(outputVideo);
       }
@@ -320,7 +297,6 @@ export default function UploadContentForm() {
 
   return (
     <div className="w-full rounded-md bg-white shadow-2xl overflow-hidden border border-purple-200">
-      {/* Header with gradient */}
       <div className="p-3 rounded-sm">
         <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent flex items-center justify-center gap-2 underline decoration-2 decoration-purple-300">
           <Upload className="w-6 h-6" />
@@ -329,7 +305,6 @@ export default function UploadContentForm() {
       </div>
 
       <form onSubmit={handleUpload} className="p-10 space-y-8">
-        {/* Text Input */}
         <div className="space-y-2">
           <label className="flex items-center text-sm font-medium text-purple-700 mb-2">
             <Text className="w-4 h-4 mr-2" />
@@ -352,7 +327,6 @@ export default function UploadContentForm() {
           )}
         </div>
 
-        {/* Image Upload */}
         <div className="space-y-3">
           <label className="flex items-center text-sm font-medium text-purple-700 mb-2">
             <ImagePlus className="h-4 w-4 mr-2" />
@@ -455,7 +429,6 @@ export default function UploadContentForm() {
           </div>
         </div>
 
-        {/* Audio Upload */}
         <div className="space-y-3">
           <label className="flex items-center text-sm font-medium text-purple-700 mb-2">
             <Mic className="h-4 w-4 mr-2" />
@@ -505,7 +478,7 @@ export default function UploadContentForm() {
                 <div className="mr-3 w-3 h-3 bg-red-500 rounded-full animate-pulse" />
                 <span className="text-red-700">Recording in progress...</span>
               </div>
-              <span className="text-xs text-red-500">Click {"'Stop Recording'"} when finished</span>
+              <span className="text-xs text-red-500">Click{"'Stop Recording'"} when finished</span>
             </div>
           )}
 
@@ -542,7 +515,6 @@ export default function UploadContentForm() {
           )}
         </div>
 
-        {/* Output Video Section */}
         {(outputVideo || processingVideo) && (
           <div className="space-y-3 mt-6 pt-6 border-t-2 border-purple-100">
             <h2 className="flex items-center text-lg font-medium text-purple-800 mb-2">
@@ -593,7 +565,6 @@ export default function UploadContentForm() {
           </div>
         )}
 
-        {/* Submit and Reset Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 pt-4">
           <button
             type="submit"
