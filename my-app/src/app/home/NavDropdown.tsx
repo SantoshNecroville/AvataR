@@ -160,7 +160,7 @@ const NavDropdown = () => {
                   {item.items.map((subItem, index) => (
                     <a
                       key={index}
-                      href={subItem.link ||"#"}
+                      href={subItem.link || "#"}
                       onClick={() => console.log(item.id)}
                       className="flex items-start p-3 rounded-lg hover:bg-purple-50 dark:hover:bg-gray-800 transition-colors group"
                     >
