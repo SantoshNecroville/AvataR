@@ -88,7 +88,7 @@ const HomePage = ({ setCurrentItem }: HomePageProps) => {
                             </div>
 
                             {/* Generate an Avatar Video */}
-                            <div className="group bg-gradient-to-b from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-900/50 transition hover:scale-105 hover:to-purple-200 dark:hover:to-purple-800 duration-300 border-t-2 border-t-purple-500 dark:border-t-purple-400 cursor-pointer rounded-lg p-3 sm:p-4 flex items-center justify-between shadow-md"
+                            {/* <div className="group bg-gradient-to-b from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-900/50 transition hover:scale-105 hover:to-purple-200 dark:hover:to-purple-800 duration-300 border-t-2 border-t-purple-500 dark:border-t-purple-400 cursor-pointer rounded-lg p-3 sm:p-4 flex items-center justify-between shadow-md"
                                 onClick={() => DirectToCreate("generate")}>
                                 <div className="flex items-center">
                                     <div className="bg-purple-200 dark:bg-purple-800 p-2 sm:p-3 rounded-lg mr-2 sm:mr-4 flex-shrink-0">
@@ -103,7 +103,7 @@ const HomePage = ({ setCurrentItem }: HomePageProps) => {
                                     <ChevronRight className="hidden group-hover:block h-4 w-4 sm:h-5 sm:w-5" />
                                     <PlusIcon className="block group-hover:hidden h-4 w-4 sm:h-5 sm:w-5" />
                                 </button>
-                            </div>
+                            </div> */}
                             
                             {/* text to speech */}
                             <div className="group bg-gradient-to-b from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-900/50 transition hover:scale-105 hover:to-purple-200 dark:hover:to-purple-800 duration-300 border-t-2 border-t-purple-500 dark:border-t-purple-400 cursor-pointer rounded-lg p-3 sm:p-4 flex items-center justify-between shadow-md"

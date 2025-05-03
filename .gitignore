@@ -6,6 +6,12 @@ env/
 venv/
 Anitalker-env/
 aniportrait-env/
+AZ-env/
+
+backend/models/outputs/
+backend/models/uploadsAZ/
+backend/models/AniTalker/output/
+backend/models/AniTalker/outputs/
 
 # Ignore all checkpoint files
 *.ckpt
