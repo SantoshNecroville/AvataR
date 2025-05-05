@@ -56,7 +56,8 @@ def run_inference():
         "--device", "cpu",
         "--stage1_checkpoint_path", stage1_ckpt,
         "--stage2_checkpoint_path", stage2_ckpt,
-        "--result_path", output_dir
+        "--result_path", output_dir,
+        # "--face_sr"
     ]
 
     try:

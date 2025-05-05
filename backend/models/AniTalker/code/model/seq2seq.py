@@ -84,7 +84,6 @@ class DiffusionPredictor(BaseModule):
             x, _ = self.speech_encoder(x, masks=None)
         predicted_location, predicted_scale, predicted_pose = face_location, face_scale, yaw_pitch_roll
         if self.infer_type != 'hubert_audio_only':
-            print(f'pose controllable. control_flag: {control_flag}')
             x, predicted_location, predicted_scale, predicted_pose = self.adjust_features(x, face_location, face_scale, yaw_pitch_roll, control_flag)
         concatenated_features = self.combine_features(x, initial_code, direction_code, noisy_x, t_emb) # initial_code and direction_code serve as a motion guide extracted from the reference image. This aims to tell the model what the starting motion should be.
         outputs = self.decode_features(concatenated_features)
@@ -97,7 +96,6 @@ class DiffusionPredictor(BaseModule):
     def adjust_features(self, x, face_location, face_scale, yaw_pitch_roll, control_flag):
         predicted_location,  predicted_scale = 0, 0
         if 'full_control' in self.infer_type:
-            print(f'full controllable. control_flag: {control_flag}')
             x_residual, predicted_location = self.adjust_location(x, face_location, control_flag)
             x = x + x_residual
 

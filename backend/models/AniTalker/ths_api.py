@@ -53,14 +53,16 @@ def generate_video():
     audio_file.save(audio_path)
 
     args = {
-        'infer_type': 'hubert_audio_only',
+        'infer_type': 'hubert_full_control',
         'stage1_checkpoint_path': 'ckpts/stage1.ckpt',
-        'stage2_checkpoint_path': 'ckpts/stage2_audio_only_hubert.ckpt',
+        'stage2_checkpoint_path': 'ckpts/stage2_full_control_hubert.ckpt',
         'test_image_path': image_path,
-        'test_audio_path': audio_path, 
-        'test_hubert_path': '',
+        'test_audio_path': audio_path,
         'result_path' : result_path,
         'device' : 'cpu',
+        'face_scale' : 0.3,
+        'step_T' : 100,
+        # 'face_sr': True #enable this only if u have gpu
     }
 
 
