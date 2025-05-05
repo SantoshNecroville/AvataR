@@ -19,6 +19,10 @@ backend/models/AniTalker/outputs/
 # Only ignore these specific ckpts
 backend/models/AniTalker/ckpts/
 backend/models/AniTalker/code/ckpts/
+backend/models/AniTalker/gfpgan/
+backend/models/AniTalker/output/
+backend/models/AniTalker/outputs/
+backend/outputs
 
 # Ignore checkpoints
 ckpts/

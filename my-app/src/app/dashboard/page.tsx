@@ -146,7 +146,7 @@ function FloatingSidebar() {
     if (!isCheckingAuth && !user) {
       router.replace("/user/login");
     }
-  }, [isCheckingAuth, user]);
+  }, [isCheckingAuth, router, user]);
 
   if (isCheckingAuth) {
 		return (

@@ -61,16 +61,17 @@ def only_tts():
 @app.route('/ths', methods=['POST'])
 def only_ths():
 
-    if 'image' not in request.files:
+    if 'image' not in request.files or 'audio' not in request.files:
         return error_response('Missing required inputs')
 
     try:
         image_file = request.files['image']
         image_path = save_file(image_file, UPLOAD_FOLDER)
 
-        tts_output_path = os.path.join(OUTPUT_FOLDER, 'generated_audio.wav')
-
-        video_path = run_ths(image_path, tts_output_path)
+        audio_file = request.files['audio']
+        audio_path = save_file(audio_file,UPLOAD_FOLDER)
+        
+        video_path = run_ths(image_path, audio_path)
 
         return send_file(video_path, as_attachment=True)
     
