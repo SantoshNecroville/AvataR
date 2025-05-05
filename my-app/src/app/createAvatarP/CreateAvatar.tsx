@@ -1,7 +1,8 @@
 "use client"
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { toast } from "sonner"
+import { useSearchParams } from 'next/navigation'
 import {
   Upload,
   ImagePlus,
@@ -32,6 +33,7 @@ interface FormErrors {
 }
 
 export default function UploadContentForm() {
+  const searchParams = useSearchParams()
   const [text, setText] = useState('')
   const [image, setImage] = useState<Inputs>({
     image: null,
@@ -58,6 +60,62 @@ export default function UploadContentForm() {
     hour: "2-digit",
     minute: "2-digit",
   })
+
+  useEffect(() => {
+    const avatar = searchParams.get('avatar')
+    const imagePath = searchParams.get('image')
+    const audioPath = searchParams.get('audio')
+
+    if (avatar) {
+      setText(avatar)
+    }
+
+    if (imagePath) {
+      loadImageFromUrl(imagePath)
+    }
+
+    if (audioPath) {
+      loadAudioFromUrl(audioPath)
+    }
+  }, [searchParams])
+
+  const loadImageFromUrl = async (url: string) => {
+    try {
+      const response = await fetch(url)
+      if (!response.ok) {
+        throw new Error(`Failed to fetch image: ${response.status}`)
+      }
+      
+      const blob = await response.blob()
+      const file = new File([blob], url.split('/').pop() || 'prefilled-image.jpg', { type: blob.type })
+      
+      setImage({
+        image: file,
+        preview: URL.createObjectURL(blob)
+      })
+    } catch (error) {
+      console.error('Error loading image:', error)
+      toast.error("Failed to load prefilled image")
+    }
+  }
+
+  const loadAudioFromUrl = async (url: string) => {
+    try {
+      const response = await fetch(url)
+      if (!response.ok) {
+        throw new Error(`Failed to fetch audio: ${response.status}`)
+      }
+      
+      const blob = await response.blob()
+      const file = new File([blob], url.split('/').pop() || 'prefilled-audio.mp3', { type: blob.type })
+      
+      setAudio(file)
+      setAudioUrl(URL.createObjectURL(blob))
+    } catch (error) {
+      console.error('Error loading audio:', error)
+      toast.error("Failed to load prefilled audio")
+    }
+  }
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -236,7 +294,6 @@ export default function UploadContentForm() {
     setProcessingVideo(true)
     
     try {
-      // Use the /inf endpoint to process everything in one request
       const formData = new FormData();
       formData.append('text', text);
       if (image.image) formData.append('image', image.image);

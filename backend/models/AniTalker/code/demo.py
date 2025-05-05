@@ -249,14 +249,12 @@ def main(args):
     
     # Enhancer
     # Code is modified from https://github.com/OpenTalker/SadTalker/blob/cd4c0465ae0b54a6f85af57f5c65fec9fe23e7f8/src/utils/face_enhancer.py#L26
-
     if args.face_sr and check_package_installed('gfpgan'):
+        print("gfpgan running...")
         from face_sr.face_enhancer import enhancer_list
         import imageio # type: ignore
-
         # Super-resolution
         imageio.mimsave(predicted_video_512_path+'.tmp.mp4', enhancer_list(predicted_video_256_path, method='gfpgan', bg_upsampler=None), fps=float(25))
-        
         # Merge audio and video
         video_clip = VideoFileClip(predicted_video_512_path+'.tmp.mp4')
         audio_clip = AudioFileClip(predicted_video_256_path)
@@ -271,7 +269,7 @@ def get_arg_parser():
     parser.add_argument('--infer_type', type=str, default='mfcc_pose_only', help='mfcc_pose_only or mfcc_full_control')
     parser.add_argument('--test_image_path', type=str, help='Path to the portrait')
     parser.add_argument('--test_audio_path', type=str, help='Path to the driven audio')
-    parser.add_argument('--test_hubert_path', type=str, help='Path to the driven audio(hubert type). Not needed for MFCC')
+    parser.add_argument('--test_hubert_path', default='./test_demos/audios_hubert/english_female.npy', type=str, help='Path to the driven audio(hubert type). Not needed for MFCC')
     parser.add_argument('--result_path', type=str, default='./results/', help='Type of inference')
     parser.add_argument('--stage1_checkpoint_path', type=str, default='./ckpts/stage1.ckpt', help='Path to the checkpoint of Stage1')
     parser.add_argument('--stage2_checkpoint_path', type=str, default='./ckpts/pose_only.ckpt', help='Path to the checkpoint of Stage2')
@@ -333,7 +331,7 @@ def run_from_args(args_dict):
     parser.add_argument('--infer_type', type=str, default='mfcc_pose_only', help='mfcc_pose_only or mfcc_full_control')
     parser.add_argument('--test_image_path', type=str, help='Path to the portrait')
     parser.add_argument('--test_audio_path', type=str, help='Path to the driven audio')
-    parser.add_argument('--test_hubert_path', type=str, help='Path to the driven audio(hubert type). Not needed for MFCC')
+    parser.add_argument('--test_hubert_path',default='./test_demos/audios_hubert/english_female.npy', type=str, help='Path to the driven audio(hubert type). Not needed for MFCC')
     parser.add_argument('--result_path', type=str, help='Type of inference')
     parser.add_argument('--stage1_checkpoint_path', type=str, default='./ckpts/stage1.ckpt', help='Path to the checkpoint of Stage1')
     parser.add_argument('--stage2_checkpoint_path', type=str, default='./ckpts/pose_only.ckpt', help='Path to the checkpoint of Stage2')

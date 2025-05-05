@@ -13,6 +13,8 @@ aniportrait-env/
 # Only ignore these specific ckpts
 backend/models/AniTalker/ckpts/
 backend/models/AniTalker/code/ckpts/
+backend/models/AniTalker/gfpgan/
+backend/models/AniTalker/output/
 
 # Ignore checkpoints
 ckpts/
