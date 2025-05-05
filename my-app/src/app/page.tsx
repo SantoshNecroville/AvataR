@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { toast } from "sonner";
 // src/app/page.tsx
 import Hero from "./home/Hero1";
 import Features from "./home/Features";

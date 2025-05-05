@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/')
-def home():
+def home(): 
     return 'Hello, from flask'
 
 UPLOAD_FOLDER = './uploads'
