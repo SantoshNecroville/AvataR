@@ -16,8 +16,8 @@ const __dirname = path.resolve();
 
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
-app.use(express.json()); // allows us to parse incoming requests:req.body
-app.use(cookieParser()); // allows us to parse incoming cookies
+app.use(express.json()); 
+app.use(cookieParser()); 
 
 app.use("/api/auth", authRoutes);
 
