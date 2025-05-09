@@ -20,8 +20,7 @@ backend/models/AniTalker/outputs/
 backend/models/AniTalker/ckpts/
 backend/models/AniTalker/code/ckpts/
 backend/models/AniTalker/gfpgan/
-backend/models/AniTalker/output/
-backend/models/AniTalker/outputs/
+backend/models/AniTalker/uploads/
 backend/outputs
 
 # Ignore checkpoints

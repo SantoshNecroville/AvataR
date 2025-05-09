@@ -58,13 +58,13 @@ Unlike traditional models that rely on heavy transformers, Small-E uses a more e
 
 ## 📌 Steps to Run
 
-### 1. Setting up DiffTalk Model
+### 1. Setting up Text-To-Speech Model
 Please refer to the detailed setup instructions in:
-[backend/models/zonos/readme.md](./backend/models/Zonos/README.md)
+[Zonos](./backend/models/Zonos/README.md)
 
-### 2. Setting up Small-E Voice Synthesis
+### 2. Setting up THS Voice Synthesis
 For voice synthesis configuration and installation, see:
-[backend/models/AniTalker/readme.md](./backend/models/AniTalker/README.md)
+[AniTalker](./backend/models/AniTalker/README.md)
 
 ### 3. Running the Application
 

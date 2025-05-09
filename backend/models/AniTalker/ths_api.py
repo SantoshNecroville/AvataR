@@ -60,8 +60,6 @@ def generate_video():
         'test_audio_path': audio_path,
         'result_path' : result_path,
         'device' : 'cpu',
-        'face_scale' : 0.3,
-        'step_T' : 100,
         # 'face_sr': True #enable this only if u have gpu
     }
 
