@@ -136,6 +136,7 @@ def generate():
         audio_file = request.files['audio']
         text_input = request.form['text']
 
+        crop_flag = "false"
         crop_flag = request.form.get('crop', 'true').lower() == 'true'
 
         image_path = save_file(image_file, UPLOAD_FOLDER)
