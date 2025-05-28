@@ -21,8 +21,7 @@ backend/models/AniTalker/ckpts/
 backend/models/AniTalker/code/ckpts/
 backend/models/AniTalker/gfpgan/
 backend/models/AniTalker/uploads/
-backend/outputs
-
+backend/outputs/
 # Ignore checkpoints
 ckpts/
 **/ckpts/
