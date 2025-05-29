@@ -7,9 +7,7 @@ import {
   PenTool,
   Settings,
   ChevronDown,
-  Sparkles,
   Camera,
-  UserPlus,
   Palette,
   Sliders,
   Shield,
@@ -53,8 +51,6 @@ const NavDropdown = () => {
           description: "View your saved persona reflections",
           link: "/gallery",
         },
-        //{ icon: <Sparkles size={16} />, title: "Collections", description: "Discover trending reflections" },
-        //{ icon: <UserPlus size={16} />, title: "Shared With You", description: "Reflections shared by connections" }
       ],
     },
     {
@@ -76,7 +72,6 @@ const NavDropdown = () => {
           description: "Transform your text into speech",
           link: "/dashboard",
         },
-        // { icon: <Sparkles size={16} />, title: "Emotion Templates", description: "Start with feeling-based presets" }
       ],
     },
     {
@@ -98,7 +93,6 @@ const NavDropdown = () => {
           description: "Control your digital boundaries",
           link: "/settings/privacy",
         },
-        // { icon: <CloudCog size={16} />, title: "Mirror Sync", description: "Manage your persona across devices" }
       ],
     },
   ];
@@ -106,7 +100,7 @@ const NavDropdown = () => {
   const handleMouseEnter = (id: string) => setActiveDropdown(id);
   const handleMouseLeave = () => setActiveDropdown(null);
 
-  if (!mounted) return null; // Prevent hydration mismatch
+  if (!mounted) return null;
 
   return (
     <div className="hidden md:flex items-center space-x-6">

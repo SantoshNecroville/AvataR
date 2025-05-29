@@ -1,4 +1,3 @@
-// src/app/home/Features.tsx
 "use client";
 
 import React from "react";
@@ -86,17 +85,6 @@ const Features: React.FC = () => {
       id="features"
       className="relative py-16 md:py-24 bg-gray-50 mt-5 dark:bg-black transition-colors duration-300 overflow-hidden"
     >
-      {/* Background elements */}
-      <div className="absolute w-full h-full top-0 left-0 overflow-hidden -z-10">
-        {/* Logo watermark */}
-        <div className="absolute bottom-10 right-10 opacity-5 dark:opacity-[0.02]">
-          {/* <svg width="200" height="200" viewBox="0 0 100 100" className="text-purple-900 dark:text-purple-300">
-            <path d="M50 10 C70 10, 90 30, 90 50 C90 70, 70 90, 50 90 C30 90, 10 70, 10 50 C10 30, 30 10, 50 10 Z" fill="none" stroke="currentColor" strokeWidth="2"></path>
-            <path d="M30 40 L45 60 L70 30" fill="none" stroke="currentColor" strokeWidth="3"></path>
-          </svg> */}
-        </div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           className="text-center mb-12 md:mb-16"

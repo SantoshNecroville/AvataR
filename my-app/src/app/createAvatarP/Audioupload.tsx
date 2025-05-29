@@ -3,10 +3,10 @@ import React from 'react'
 import { Mic, Headphones, Camera, StopCircle, X, AlertTriangle, Music } from 'lucide-react';
 import Image from 'next/image';
 
-// Fix the typings for props to resolve type errors
+
 interface AudiouploadProps {
   openFileSelector: (ref: React.RefObject<HTMLInputElement>) => void;
-  audioInputRef: React.RefObject<HTMLInputElement>;
+  audioInputRef: React.RefObject<HTMLInputElement | null>
   recordingAudio: boolean;
   stopRecording: () => void;
   startRecording: () => void;
@@ -23,9 +23,10 @@ interface AudiouploadProps {
   handleAudioSelect: (audioUrl: string) => Promise<void>;
   setAudio: React.Dispatch<React.SetStateAction<File | null>>;
   setAudioUrl: React.Dispatch<React.SetStateAction<string | null>>;
-  audioRef: React.RefObject<HTMLAudioElement>;
+  audioRef: React.RefObject<HTMLAudioElement | null>;
   audioUrl: string | null;
 }
+
 
 const Audioupload = ({
   openFileSelector,
@@ -97,24 +98,20 @@ const Audioupload = ({
           </button>
 
           <div className="relative">
-            {/* Modal overlay - appears when gallery is open */}
             {showGalleryAudios && (
               <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm flex items-center justify-center">
-                {/* Dark overlay that disables background */}
                 <div
                   className="absolute inset-0 bg-opacity-50"
                   onClick={() => setShowGalleryAudios(false)}
                 />
 
-                {/* Gallery modal */}
                 <div className="bg-white rounded-lg p-6 z-50 w-full max-w-2xl max-h-[80vh] overflow-y-auto">
                   <div className="flex justify-between items-center mb-4">
                     <h3 className="text-lg font-medium">Choose an Audio</h3>
                     <button
                       onClick={() => setShowGalleryAudios(false)}
                       className="p-1 rounded-full hover:bg-gray-100"
-                    >
-                      <X className="h-6 w-6" />
+                    ><X className="h-6 w-6" />
                     </button>
                   </div>
 

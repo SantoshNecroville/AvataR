@@ -544,7 +544,10 @@ export default function CreateAvatarP() {
     <div className={containerClass}>
       <div className="container mx-auto p-6">
 
-        <div className="flex justify-end items-center mb-8">
+        <div className="flex justify-between items-center mb-8">
+          <div className="text-4xl font-semibold ml-5 tracking-wide">
+            Avatar Ai Studio
+          </div>
           <button
             onClick={toggleTheme}
             className={`p-3 rounded-xl transition-all duration-300 ${

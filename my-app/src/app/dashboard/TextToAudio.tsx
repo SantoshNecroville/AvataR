@@ -32,7 +32,6 @@ const TextToAudio = () => {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
       setIsDarkMode(true);
@@ -40,7 +39,6 @@ const TextToAudio = () => {
     }
     
     return () => {
-      // Clean up any object URLs on component unmount
       if (audioUrl) {
         URL.revokeObjectURL(audioUrl);
       }
@@ -53,7 +51,7 @@ const TextToAudio = () => {
     };
   }, [audioUrl, outputAudioUrl]);
 
-  // Toggle theme function
+
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
     if (!isDarkMode) {
@@ -110,14 +108,13 @@ const TextToAudio = () => {
         setFormData(prev => ({ ...prev, audio: file }));
         setErrors(prev => ({ ...prev, audio: undefined }));
         
-        // Stop all tracks from the stream
+
         stream.getTracks().forEach(track => track.stop());
       });
       
       mediaRecorder.start();
       setIsRecording(true);
       
-      // Start timer
       setRecordingTime(0);
       timerRef.current = setInterval(() => {
         setRecordingTime(prevTime => prevTime + 1);
@@ -138,7 +135,6 @@ const TextToAudio = () => {
     }
     setIsRecording(false);
     
-    // Clear timer
     if (timerRef.current) {
       clearInterval(timerRef.current);
       timerRef.current = null;
@@ -176,7 +172,6 @@ const TextToAudio = () => {
     setLoading(true);
     
     try {
-      // Create form data for multipart/form-data request
       const requestData = new FormData();
       requestData.append('text', formData.text);
       if (formData.audio) {
@@ -256,7 +251,6 @@ const TextToAudio = () => {
           <div className="bg-purple-50 dark:bg-purple-900/30 border border-purple-300 dark:border-purple-700 rounded-md p-4 mb-6">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                {/* Success icon would go here */}
               </div>
               <div className="ml-3">
                 <h3 className="text-sm font-medium text-purple-800 dark:text-purple-200">Conversion Successful!</h3>
@@ -282,10 +276,9 @@ const TextToAudio = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    // Create an anchor element and trigger download
                     const a = document.createElement('a');
                     a.href = outputAudioUrl;
-                    a.download = 'generated-audio.wav'; // Default filename
+                    a.download = 'generated-audio.wav';
                     document.body.appendChild(a);
                     a.click();
                     document.body.removeChild(a);
@@ -330,7 +323,6 @@ const TextToAudio = () => {
               </label>
               
               <div className="flex flex-col space-y-4">
-                {/* Record audio option */}
                 <div className="p-4 bg-white dark:bg-purple-900/30 rounded-lg border border-purple-200 dark:border-purple-700">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-sm font-medium text-purple-800 dark:text-purple-200">Record your voice</span>
@@ -364,14 +356,14 @@ const TextToAudio = () => {
                   </p>
                 </div>
                 
-                {/* OR divider */}
+
                 <div className="relative flex items-center">
                   <div className="flex-grow border-t border-gray-300 dark:border-gray-700"></div>
                   <span className="flex-shrink mx-4 text-gray-500 dark:text-gray-400">OR</span>
                   <div className="flex-grow border-t border-gray-300 dark:border-gray-700"></div>
                 </div>
                 
-                {/* Upload audio file option */}
+
                 <div className={`flex justify-center px-6 pt-5 pb-6 border-2 ${errors.audio ? 'border-red-500 dark:border-red-700' : 'border-purple-200 dark:border-purple-700'} border-dashed rounded-md bg-white dark:bg-purple-900/30`}>
                   <div className="space-y-1 text-center">
                     <div className="flex text-sm text-purple-800 dark:text-purple-200 justify-center">
@@ -403,7 +395,6 @@ const TextToAudio = () => {
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center">
                       <div className="p-2 bg-purple-100 dark:bg-purple-800 rounded-full text-purple-700 dark:text-purple-300">
-                        {/* Audio icon would go here */}
                       </div>
                       <span className="ml-2 text-sm text-purple-800 dark:text-purple-200">
                         {formData.audio?.name || "Voice recording"}

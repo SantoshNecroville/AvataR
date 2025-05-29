@@ -12,10 +12,9 @@ import {
 import TextToAudio from "./TextToAudio";
 import FrontPage from "./FrontPage";
 import { useAuthStore } from "../user/store/authStore";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-// Create theme context
+
 const ThemeContext = createContext({
   theme: "light",
   toggleTheme: () => {},
@@ -25,7 +24,7 @@ const ThemeContext = createContext({
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState("light");
 
-  // Check for saved theme preference or system preference on mount
+
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
 
@@ -39,7 +38,7 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, []);
 
-  // Apply theme class to document
+
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -47,11 +46,11 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       document.documentElement.classList.remove("dark");
     }
 
-    // Save theme preference
+
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Toggle theme function
+
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
@@ -63,10 +62,10 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-// Hook to use theme
+
 const useTheme = () => useContext(ThemeContext);
 
-// Define sidebar items
+
 const sidebarItems = [
   {
     title: "Create Avatar",
@@ -110,7 +109,7 @@ function FloatingSidebar() {
   const {user, checkAuth, isCheckingAuth} = useAuthStore();
   const router = useRouter();
 
-  // Check if device is mobile
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -139,8 +138,8 @@ function FloatingSidebar() {
   }, [expanded]);
 
   useEffect(() => {
-		checkAuth(); // refetch auth status from backend
-	}, []);
+		checkAuth();
+	}, [checkAuth]);
 
   useEffect(() => {
     if (!isCheckingAuth && !user) {
@@ -182,12 +181,10 @@ function FloatingSidebar() {
           id="mobile-menu-button"
           className="fixed top-4 left-4 z-20 bg-purple-800 dark:bg-purple-950 text-white p-2 rounded-lg shadow-lg"
           onClick={toggleSidebar}
-        >
-          {expanded ? "✕" : "☰"}
+        >{expanded ? "✕" : "☰"}
         </button>
       )}
 
-      {/* Fixed sidebar with improved transition */}
       <div
         id="sidebar-container"
         className={`
@@ -203,7 +200,6 @@ function FloatingSidebar() {
           id="sidebar-header"
           className="flex items-center justify-between p-1 border-b border-purple-600 dark:border-purple-800"
         >
-          {/* Header section with user and theme toggle */}
           <div className="flex items-center">
             <div className="m-2 bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg text-gray-600 dark:text-gray-300 transition duration-200 cursor-pointer hover:scale-105">
               <User className="w-6 h-6 rounded-lg" />
@@ -214,17 +210,6 @@ function FloatingSidebar() {
               </span>
             )}
           </div>
-
-          {/* Theme toggle button - only show when expanded */}
-          {/* {expanded && textVisible && (
-            <button
-              onClick={toggleTheme}
-              className="mr-2 p-2 rounded-full hover:bg-purple-700 dark:hover:bg-purple-800 text-white transition-colors duration-200"
-              title={theme === 'light' ? "Switch to Dark Mode" : "Switch to Light Mode"}
-            >
-              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-            </button>
-          )} */}
         </div>
 
         <div id="sidebar-navigation" className="flex-1 overflow-y-auto py-6">
@@ -276,7 +261,6 @@ function FloatingSidebar() {
           </ul>
         </div>
 
-        {/* Theme toggle in footer when collapsed */}
         {!expanded && (
           <div className="p-3 border-t border-purple-600 dark:border-purple-800">
             <button
@@ -294,7 +278,6 @@ function FloatingSidebar() {
         )}
       </div>
 
-      {/* Main Content with smooth transition */}
       <div
         id="main-content"
         className={`
@@ -337,7 +320,7 @@ function FloatingSidebar() {
   );
 }
 
-// Export the component wrapped with ThemeProvider
+
 export default function AppWithTheme() {
   return (
     <ThemeProvider>

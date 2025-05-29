@@ -1,9 +1,9 @@
 import React from 'react';
-import { FaGithub,FaLinkedin } from "react-icons/fa"; // or your icon set
+import { FaGithub,FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="relative z-10 bg-black/80 text-white px-6 py-5 text-sm">
+    <footer className="relative z-10 bg-black/80 text-white px-6 py-5 mt-3 text-sm">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
         
         <div>&copy; 2025 Avatar AI. All rights reserved.</div>

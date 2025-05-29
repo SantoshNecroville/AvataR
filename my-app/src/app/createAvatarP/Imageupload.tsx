@@ -39,11 +39,9 @@ const Imageupload: React.FC<ImageUploadProps> = ({
   setImage,
   handleImageSelect,
 }) => {
-  // Optimization: Track current page for gallery pagination
   const [currentPage, setCurrentPage] = useState(0);
   const imagesPerPage = 6;
   
-  // Optimization: Memoize paginated images to avoid recalculation on every render
   const paginatedImages = useMemo(() => {
     const startIndex = currentPage * imagesPerPage;
     return galleryImages.slice(startIndex, startIndex + imagesPerPage);
@@ -51,7 +49,7 @@ const Imageupload: React.FC<ImageUploadProps> = ({
   
   const totalPages = Math.ceil(galleryImages.length / imagesPerPage);
   
-  // Handle keyboard navigation
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -72,7 +70,7 @@ const Imageupload: React.FC<ImageUploadProps> = ({
     };
   }, [showGalleryImages, setShowGalleryImages, currentPage, totalPages]);
 
-  // Reset to first page when gallery opens
+
   useEffect(() => {
     if (showGalleryImages) {
       setCurrentPage(0);

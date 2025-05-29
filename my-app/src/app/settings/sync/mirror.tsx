@@ -11,14 +11,13 @@ export default function MirrorSyncPage() {
 
   return (
     <div className="min-h-screen py-10 px-6" style={{ backgroundColor: '#E6E6FA' }}>
-      {/* Background Image with opacity and pointer-events disabled */}
+      
       <div className="absolute inset-0 opacity-15 pointer-events-none z-0">
         <img src="/ai(1).png" alt="Background" className="w-full h-full object-cover" />
       </div>
 
-      {/* Foreground Content */}
       <div className="relative z-10 max-w-4xl mx-auto space-y-10">
-        {/* Header */}
+
         <div>
           <h1 className="text-3xl font-bold text-black mb-1">Mirror Sync</h1>
           <p className="text-gray-700">
@@ -26,7 +25,6 @@ export default function MirrorSyncPage() {
           </p>
         </div>
 
-        {/* Enable/Disable Mirror Sync */}
         <div className="bg-[#4a3d66] p-6 rounded-3xl shadow-xl border border-purple-200 space-y-4">
           <div className="flex items-center justify-between">
             <label className="text-white font-semibold text-lg">Enable Mirror Sync</label>
@@ -42,7 +40,6 @@ export default function MirrorSyncPage() {
           </p>
         </div>
 
-        {/* Sync Frequency */}
         <div className="bg-[#4a3d66] p-6 rounded-3xl shadow-xl border border-purple-200">
           <label className="block text-white font-semibold text-lg mb-2">Sync Frequency</label>
           <select
@@ -58,7 +55,6 @@ export default function MirrorSyncPage() {
           </select>
         </div>
 
-        {/* Selective Sync */}
         <div className="bg-[#4a3d66] p-6 rounded-3xl shadow-xl border border-purple-200">
           <h2 className="text-white font-semibold text-lg mb-4">Selective Sync</h2>
           <div className="space-y-4">
