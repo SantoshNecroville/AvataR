@@ -1,4 +1,3 @@
-// src/app/home/CallToAction.tsx
 'use client'
 
 import React from 'react'
@@ -18,7 +17,7 @@ const CallToAction: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="#signup" 
+              href="dashboard" 
               className="group px-8 py-3 bg-white text-purple-700 font-medium rounded-md shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
             >
               Get Started Now

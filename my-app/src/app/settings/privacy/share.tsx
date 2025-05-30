@@ -10,12 +10,11 @@ export default function PrivacySettings() {
   return (
     <div className="min-h-screen py-10 px-6" style={{ backgroundColor: '#E6E6FA' }}>
       <div className="max-w-4xl mx-auto space-y-10">
-        
-        {/* Background Image with opacity 0.25 */}
+
         <div className="absolute inset-0 opacity-10 z-0">
           <img src="/ai(1).png" alt="Background" className="w-full h-full object-cover" />
         </div>
-        {/* Privacy Settings Header */}
+        
         <div className="mb-4">
           <h1 className="text-3xl font-bold text-black mb-1">Privacy Settings</h1>
           <p className="text-gray-700">
@@ -24,7 +23,6 @@ export default function PrivacySettings() {
         </div>
 
 
-        {/* Account Privacy Settings */}
         <div className="bg-[#3a3050] p-1 rounded-2xl shadow-2xl border border-purple-300">
           <div className="bg-[#4a3d66] p-6 rounded-2xl">
             <h3 className="text-lg font-bold text-white mb-4">Account Privacy</h3>

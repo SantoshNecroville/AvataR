@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles, Mic, PlayCircle, Smile } from "lucide-react";
 
@@ -33,15 +32,10 @@ const Showcase: React.FC = () => {
           </p>
         </div>
 
-        {/* Featured Preview */}
+
         <div className="max-w-4xl mx-auto bg-gradient-to-br from-purple-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden shadow-xl">
           <div className="aspect-video relative">
-            {/* <Image
-              src="/Avatar_Demo_example.jpg"
-              alt="AI Avatar Demo Preview"
-              fill
-              className="object-cover"
-            /> */}
+
             <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-transparent flex items-center justify-center">
               <div className="text-white text-center p-8">
                 <h3 className="text-2xl md:text-3xl font-bold mb-4 text-black dark:text-white">
@@ -76,7 +70,6 @@ const Showcase: React.FC = () => {
 
         {/* Features Preview */}
         <div className="mt-16 relative">
-          {/* Enhanced Animated Key Features Title Without SVG */}
           <div className="mb-10 relative">
 
             <h2 className="text-3xl md:text-4xl font-bold text-center relative z-10">

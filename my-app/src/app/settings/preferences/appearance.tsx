@@ -43,16 +43,15 @@ export default function Preferences() {
 
   return (
     <div className="relative min-h-screen py-10 px-6 bg-[#e6e6fa] overflow-hidden">
-      
-      {/* Background Image with opacity 0.25 */}
+
       <div className="absolute inset-0 opacity-25 z-0">
         <img src="/ai(1).png" alt="Background" className="w-full h-full object-cover" />
       </div>
 
-      {/* Page Content */}
+
       <div className="relative z-10 max-w-4xl mx-auto space-y-10">
 
-        {/* Heading and Description */}
+
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-black">Preferences</h1>
           <p className="text-lg text-black">Manage your theme, font size, and notification settings.</p>
@@ -93,8 +92,8 @@ export default function Preferences() {
         {/* Notification Settings */}
         <div className="bg-white p-6 rounded-2xl shadow-xl border border-purple-200">
           <h3 className="text-lg font-bold text-purple-800 mb-4">Notification Settings</h3>
-          
-          {/* Email Notifications box */}
+
+
           <div className="bg-[#f4f0ff] p-4 rounded-xl flex items-center gap-3 border border-purple-200 shadow">
             <input
               type="checkbox"

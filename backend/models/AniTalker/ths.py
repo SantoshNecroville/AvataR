@@ -40,9 +40,9 @@ def run_ths(image_path_input: str, audio_path_input: str, device: str = "cpu") -
         ckpt_dir = os.path.join(base_dir, 'ckpts')
 
         args = {
-            'infer_type': 'hubert_audio_only',
+            'infer_type': 'hubert_full_control',
             'stage1_checkpoint_path': os.path.join(ckpt_dir, 'stage1.ckpt'),
-            'stage2_checkpoint_path': os.path.join(ckpt_dir, 'stage2_audio_only_hubert.ckpt'),
+            'stage2_checkpoint_path': os.path.join(ckpt_dir, 'stage2_full_control_hubert.ckpt'),
             'test_image_path': image_dest_path,
             'test_audio_path': audio_dest_path,
             'test_hubert_path': '',

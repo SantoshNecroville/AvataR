@@ -1,7 +1,8 @@
-'use client';  // src/app/gallery/page.tsx
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 
 const GalleryPage = () => {
@@ -34,7 +35,6 @@ const GalleryPage = () => {
   
   return (
     <div className={`relative w-screen min-h-screen ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'} overflow-hidden`}>
-      {/* Navigation */}
       <nav className={`fixed top-0 w-full z-30 transition duration-300 ${
         isScrolling 
           ? theme === 'dark' 
@@ -47,14 +47,13 @@ const GalleryPage = () => {
             <h2 className={`text-2xl font-bold ${theme === 'dark' ? 'text-purple-300' : 'text-purple-600'} tracking-wider`}>Avatar Lab</h2>
           </Link>
           
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-6">
             <Link href="/gallery/collections" className={`${theme === 'dark' ? 'hover:text-purple-300' : 'hover:text-purple-600'} transition-colors`}>Collections</Link>
             <Link href="/gallery/trending" className={`${theme === 'dark' ? 'hover:text-purple-300' : 'hover:text-purple-600'} transition-colors`}>Trending</Link>
             <Link href="/dashboard">
               <button className="px-5 py-2 bg-purple-600 hover:bg-purple-700 rounded-full text-white font-medium shadow-md hover:shadow-purple-500/20 transition-all">Create Avatar</button>
             </Link>
-            {/* Theme Toggle for Desktop */}
+
             <button
               className={`p-2 rounded-full transition-all duration-300 ${
                 theme === "dark"
@@ -68,9 +67,7 @@ const GalleryPage = () => {
             </button>
           </div>
           
-          {/* Mobile Menu Controls */}
           <div className="lg:hidden flex items-center space-x-2">
-            {/* Theme Toggle for Mobile */}
             <button
               className={`p-2 rounded-full transition-all duration-300 ${
                 theme === "dark"
@@ -82,7 +79,7 @@ const GalleryPage = () => {
             >
               {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
             </button>
-            {/* Menu Toggle Button */}
+            
             <button
               className={`p-2 rounded-full transition-colors ${
                 theme === "dark" ? "hover:bg-gray-800" : "hover:bg-gray-100/80"
@@ -119,7 +116,14 @@ const GalleryPage = () => {
         )}
       </nav>
       
-      {/* Background */}
+      <Image
+        src="/avatars/ai.jpg"
+        alt="Gallery Background"
+        fill
+        className="absolute inset-0 w-full h-full object-cover"
+        priority
+        sizes="100vw"
+      />
       <img src="/avatars/ai.jpg" alt="Gallery Background" className="absolute inset-0 w-full h-full object-cover" />
       <div className={`absolute inset-0 ${
         theme === 'dark' 

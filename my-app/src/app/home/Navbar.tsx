@@ -4,11 +4,9 @@ import {
   Menu,
   X,
   Home,
-  Heart,
   ImageIcon,
   PenTool,
   Settings,
-  MessageCircle,
   LogIn,
   Moon,
   Sun,
@@ -50,7 +48,6 @@ const Navbar = () => {
     router.push('/dashboard');
   };
 
-  // Handle component mount for theme
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -72,7 +69,7 @@ const Navbar = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
-  // Don't render theme toggle until mounted to prevent hydration mismatch
+
   if (!mounted) {
     return (
       <nav
@@ -82,7 +79,7 @@ const Navbar = () => {
       >
         <div className="container mx-auto p-4">
           <div className="flex justify-between items-center">
-            {/* Placeholder for content while mounting */}
+            
             <div className="flex items-center space-x-3 group">
               <div className="relative w-12 h-12 overflow-hidden rounded-lg shadow-lg"></div>
               <h1 className="text-2xl font-light tracking-wider">
@@ -107,10 +104,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto p-6">
         <div className="flex justify-between items-center">
-          {/* Logo and Title */}
           <div className="flex items-center space-x-3 group scale-110">
             <div className="relative w-12 h-12 overflow-hidden rounded-lg shadow-lg transition-all duration-300 group-hover:scale-115 bg-gradient-to-br from-purple-400 to-indigo-500">
-              {/* Custom Logo Placeholder */}
               <Link href="/demo">
                 <Image
                   src="/ai.png"
@@ -130,7 +125,7 @@ const Navbar = () => {
             </h1>
           </div>
 
-          {/* Desktop Navigation */}
+
           <div className="hidden lg:flex items-center space-x-6">
             <NavLink
               href="/"
@@ -174,7 +169,7 @@ const Navbar = () => {
             
           </div>
 
-          {/* Mobile Menu Controls */}
+
           <div className="lg:hidden flex items-center space-x-2">
             {/* Theme Toggle for Mobile */}
             <button
@@ -206,7 +201,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation Menu */}
+
         {isMenuOpen && (
           <div className="lg:hidden mt-4 pt-4 border-t border-gray-200/50 dark:border-gray-700/50 animate-fadeIn">
             <div

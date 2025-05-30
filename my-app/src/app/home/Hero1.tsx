@@ -1,9 +1,6 @@
-// src/app/home/Hero.tsx
 "use client";
 
 import React from "react";
-// import Image from 'next/image';
-import SplineViewer from "../components/SplineViewer";
 
 const Hero1: React.FC = () => {
   return (

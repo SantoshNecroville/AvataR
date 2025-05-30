@@ -34,13 +34,12 @@ export default function TermsModal({ isOpen, onClose, onAccept }: TermsModalProp
         <div className="p-5 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-white">
           <h3 className="text-xl font-bold text-purple-800 flex items-center">
             <AlertCircle className="w-5 h-5 mr-2 text-purple-600" />
-            TalkSync AI Terms & Conditions
+            Avatar AI Terms & Conditions
           </h3>
           <button
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700 transition-colors"
-          >
-            <X className="w-5 h-5" />
+          ><X className="w-5 h-5" />
           </button>
         </div>
 
@@ -53,7 +52,7 @@ export default function TermsModal({ isOpen, onClose, onAccept }: TermsModalProp
             <div className="bg-purple-50 p-4 rounded-md border border-purple-200 mb-4">
               <h4 className="font-semibold text-purple-800 mb-2">Data Processing Agreement</h4>
               <p className="text-sm mb-2">
-                By using TalkSync AI, you consent to our processing of your uploaded content (reference images, voice recordings, and text) 
+                By using Avatar AI, you consent to our processing of your uploaded content (reference images, voice recordings, and text) 
                 for the purpose of generating synthetic talking head videos. Your data will be processed using our AI technologies to create 
                 personalized content that matches your inputs.
               </p>
@@ -66,7 +65,7 @@ export default function TermsModal({ isOpen, onClose, onAccept }: TermsModalProp
             <div className="bg-purple-50 p-4 rounded-md border border-purple-200 mb-4">
               <h4 className="font-semibold text-purple-800 mb-2">Content Rights & Usage</h4>
               <p className="text-sm mb-2">
-                You retain all ownership rights to your original uploaded content. By using our service, you grant TalkSync AI a non-exclusive, 
+                You retain all ownership rights to your original uploaded content. By using our service, you grant Avatar AI a non-exclusive, 
                 worldwide license to use, store, and process your content solely for the purpose of providing and improving our services.
               </p>
               <p className="text-sm">
@@ -83,7 +82,7 @@ export default function TermsModal({ isOpen, onClose, onAccept }: TermsModalProp
                 You agree to use generated content responsibly and to clearly disclose its AI-generated nature when sharing.
               </p>
               <p className="text-sm">
-                TalkSync AI cannot guarantee perfect synchronization, natural movement, or flawless results in all cases. Quality may vary based on the 
+                Avatar AI cannot guarantee perfect synchronization, natural movement, or flawless results in all cases. Quality may vary based on the 
                 quality of your input materials and technical limitations of current AI technologies.
               </p>
             </div>
@@ -107,7 +106,7 @@ export default function TermsModal({ isOpen, onClose, onAccept }: TermsModalProp
               <h4 className="font-semibold text-purple-800 mb-2">Age Confirmation</h4>
               <p className="text-sm">
                 You confirm that you are at least 16 years old and, if required by your local laws, have parental consent 
-                to use this service and provide your data. TalkSync AI is not intended for use by individuals under the applicable 
+                to use this service and provide your data. Avatar AI is not intended for use by individuals under the applicable 
                 minimum age in their jurisdiction.
               </p>
             </div>
@@ -185,8 +184,7 @@ export default function TermsModal({ isOpen, onClose, onAccept }: TermsModalProp
           <button
             onClick={onClose}
             className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
-          >
-            Cancel
+          >Cancel
           </button>
           <button
             onClick={onAccept}
@@ -196,8 +194,7 @@ export default function TermsModal({ isOpen, onClose, onAccept }: TermsModalProp
                 ? 'bg-purple-600 hover:bg-purple-700'
                 : 'bg-purple-300 cursor-not-allowed'
             }`}
-          >
-            Accept & Continue
+          >Accept & Continue
           </button>
         </div>
       </div>

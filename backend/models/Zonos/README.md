@@ -3,7 +3,7 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Appu-Reddy/AvatarLab-G362-PS25.git
+git clone https://github.com/SantoshNecroville/AvataR.git
 ```
 
 
@@ -42,7 +42,7 @@ If you face numpy-related errors, use the following version of numpy:
     pip install numpy==1.24.0
 
 ### eSpeak errors:
-1. Install espeak from [Download Espeak](https://espeak.sourceforge.net/download.html)
+1. Install espeak from [Download Espeak](https://espeak.sourceforge.net/download.html) and espeak ng from [Download Espeak-NG](https://github.com/espeak-ng/espeak-ng/releases/download/1.52.0/espeak-ng.msi)
 2. Run the .exe file
 3. Set Path variables
     - ADD "C:\Program Files (x86)\eSpeak" to Path

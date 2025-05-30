@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { Search } from 'lucide-react';
-import { FileText, ChevronRight, Plus as PlusIcon, User, Mic, Moon, Sun } from "lucide-react";
+import { FileText, ChevronRight, Plus as PlusIcon, Mic, Moon, Sun } from "lucide-react";
 import { useRouter } from 'next/navigation';
 
 type ProjectType = 'all' | 'personalized' | 'avatar' | 'screen';
@@ -17,7 +17,7 @@ const HomePage = ({ setCurrentItem }: HomePageProps) => {
     const [component, setComponent] = useState("frontPage");
     const [isDarkMode, setIsDarkMode] = useState(false);
 
-    // Effect to initialize theme from localStorage if available
+    
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
@@ -26,7 +26,7 @@ const HomePage = ({ setCurrentItem }: HomePageProps) => {
         }
     }, []);
 
-    // Toggle theme function
+    
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode);
         if (!isDarkMode) {
@@ -48,7 +48,7 @@ const HomePage = ({ setCurrentItem }: HomePageProps) => {
         <div className={isDarkMode ? 'dark' : ''}>
             <div className={`${component !== "frontPage" ? "hidden" : "block"} min-h-screen bg-background dark:bg-black text-purple-900 dark:text-purple-100 p-4 sm:p-6 md:p-8 rounded-md w-full overflow-x-hidden transition-colors duration-300`}>
                 <Head>
-                    <title>Studio by Gan.AI</title>
+                    <title>Studio by AvatarAI</title>
                     <meta name="description" content="Create personalized videos and avatars" />
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 </Head>
@@ -64,12 +64,12 @@ const HomePage = ({ setCurrentItem }: HomePageProps) => {
                 </div>
 
                 <main className="max-w-7xl mx-auto">
-                    {/* Creation Options Section */}
+                    
                     <div className="mb-8 md:mb-16">
                         <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-purple-900 dark:text-purple-100">What would you like to create?</h2>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4" >
-                            {/* New Personalized Project */}
+
                             <div className="group bg-gradient-to-b from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-900/50 transition hover:scale-105 hover:to-purple-200 dark:hover:to-purple-800 duration-300 border-t-2 border-t-purple-500 dark:border-t-purple-400 rounded-lg p-3 sm:p-4 flex items-center justify-between cursor-pointer shadow-md"
                                 onClick={() => DirectToCreate("createAvatarP")}>
                                 <div className="flex items-center">
@@ -87,25 +87,6 @@ const HomePage = ({ setCurrentItem }: HomePageProps) => {
                                 </button>
                             </div>
 
-                            {/* Generate an Avatar Video */}
-                            {/* <div className="group bg-gradient-to-b from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-900/50 transition hover:scale-105 hover:to-purple-200 dark:hover:to-purple-800 duration-300 border-t-2 border-t-purple-500 dark:border-t-purple-400 cursor-pointer rounded-lg p-3 sm:p-4 flex items-center justify-between shadow-md"
-                                onClick={() => DirectToCreate("generate")}>
-                                <div className="flex items-center">
-                                    <div className="bg-purple-200 dark:bg-purple-800 p-2 sm:p-3 rounded-lg mr-2 sm:mr-4 flex-shrink-0">
-                                        <AvatarIcon className="h-5 w-5 sm:h-6 sm:w-6 text-purple-700 dark:text-purple-300" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-base sm:text-lg font-medium text-purple-900 dark:text-purple-100">Generate an Avatar Video</h3>
-                                        <p className="text-purple-600 dark:text-purple-300 text-xs sm:text-sm">Create a single or personalized videos with your avatars</p>
-                                    </div>
-                                </div>
-                                <button className="p-1 sm:p-2 rounded-lg text-purple-600 dark:text-purple-300 cursor-pointer flex-shrink-0">
-                                    <ChevronRight className="hidden group-hover:block h-4 w-4 sm:h-5 sm:w-5" />
-                                    <PlusIcon className="block group-hover:hidden h-4 w-4 sm:h-5 sm:w-5" />
-                                </button>
-                            </div> */}
-                            
-                            {/* text to speech */}
                             <div className="group bg-gradient-to-b from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-900/50 transition hover:scale-105 hover:to-purple-200 dark:hover:to-purple-800 duration-300 border-t-2 border-t-purple-500 dark:border-t-purple-400 cursor-pointer rounded-lg p-3 sm:p-4 flex items-center justify-between shadow-md"
                                 onClick={() => { setCurrentItem("textToAudio") }}>
                                 <div className="flex items-center">
@@ -125,10 +106,9 @@ const HomePage = ({ setCurrentItem }: HomePageProps) => {
                         </div>
                     </div>
 
-                    {/* Divider */}
+
                     <hr className="border-purple-200 dark:border-purple-800 my-6 sm:my-8" />
 
-                    {/* Recently Created Section */}
                     <div>
                         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-3 sm:gap-0">
                             <div className="flex items-center">
@@ -171,7 +151,7 @@ const HomePage = ({ setCurrentItem }: HomePageProps) => {
                                 </div>
                                 <AvatarIllustration isDark={isDarkMode} />
                             </div>
-                            <h3 className="text-xl sm:text-2xl font-medium mb-4 sm:mb-6 text-center text-purple-900 dark:text-purple-100">Welcome to Studio by Gan.AI</h3>
+                            <h3 className="text-xl sm:text-2xl font-medium mb-4 sm:mb-6 text-center text-purple-900 dark:text-purple-100">Welcome to Studio by AvatarAI</h3>
                             <button 
                                 className="bg-purple-700 dark:bg-purple-600 cursor-pointer hover:bg-purple-800 dark:hover:bg-purple-500 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-medium w-full sm:w-auto shadow-md" 
                                 onClick={() => DirectToCreate("createAvatarP")}
@@ -182,12 +162,11 @@ const HomePage = ({ setCurrentItem }: HomePageProps) => {
                     </div>
                 </main>
             </div>
-            {/* {component==="personalize" && <CreateAvatar/>} */}
         </div>
     );
 };
 
-// Component for tab buttons
+
 const TabButton = ({
     children,
     active,
@@ -219,11 +198,7 @@ const DocumentIcon = ({ className }: { className?: string }) => (
     <FileText className={className} />
 );
 
-const AvatarIcon = ({ className }: { className?: string }) => (
-    <User className={className} />
-);
 
-// Avatar Illustration Component
 const AvatarIllustration = ({ isDark = false }: { isDark?: boolean }) => (
     <div className="relative h-full w-full">
         <div className="absolute bottom-0 left-8 sm:left-12">
