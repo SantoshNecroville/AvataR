@@ -29,9 +29,9 @@ This Project brings avatars to life by creating realistic talking head animation
 
 [🎥 Virat Avatar Demo](./assets/virat.mp4)
 
-<!-- ![Anime Avatar Demo](./assets/anime.mp4)
+![Demo Avatar](./assets/viratGIF.gif)
+![Demo Avatar](./assets/animeGIF.gif)
 
-![Virat Avatar Demo](./assets/virat.mp4) -->
 
 ## 📌 Research Paper Explanations
 
