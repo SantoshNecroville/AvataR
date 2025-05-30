@@ -15,11 +15,19 @@ This Project brings avatars to life by creating realistic talking head animation
 
 ## 📌 Architecture Diagram
 
-![Architecture Diagram](./my-app/public/Architecture.png)
+![Architecture Diagram](./assets/Architecture.png)
 
 ## 📌 Workflow Diagram
 
-![Workflow Diagram](./my-app/public/WorkFlow.png)
+![Workflow Diagram](./assets/WorkFlow.png)
+
+## 📌 Demo
+
+### Sample Outputs
+
+![Anime Avatar Demo](./assets/anime.mp4)
+
+![Virat Avatar Demo](./assets/virat.mp4)
 
 ## 📌 Research Paper Explanations
 
@@ -101,17 +109,18 @@ Small-E proves that high-quality speech synthesis doesn't have to be resource-he
 - **Member 4**: [PANNALA APUROOP REDDY KMIT](https://github.com/Appu-Reddy)
 - **Member 5**: [PICHAPATI ADI ASWATHA REDDY KMIT](https://github.com/aswath-reddy)
 - **Member 6**: [PANDIT VIVEK KUMAR](https://github.com/Vivek17290)
+# 🚀 Project Milestones
 
-## 📊 Project Milestones
+## 📊 Team Progress Overview
 
-| Team Member | Milestone 1 Links | Milestone 2 Links | PPT Links |
-|-------------|-------------------|-------------------|-----------|
-| **NUKALA SIRI CHANDANA** | [Video Link 1](https://youtu.be/kk90nlDJyQY?si=3Ql4M1sTTovHFs-c) | [Video Link 2](https://www.youtube.com/watch?v=2t-nBTw2Fcc) | [PPT Link](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A0556.pptx) |
-| **LOKINENI HINDHUJA** | [Video Link 1](https://drive.google.com/file/d/188SJ_Cpvs_8Wvk_KrPtYrIbw2gC78pLA/view) | [Video Link 2](https://www.youtube.com/watch?v=UWc4-Y4jeWs) | [PPT Link](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A0545.pptx) |
-| **MANTHINEEDI SANTHOSH SIDDARTHA** | [Video Link 1](https://drive.google.com/file/d/1_TmtuXGoI8EVZurBlH3fJcrTQeeVRM_r/view) | [Video Link 2](https://drive.google.com/file/d/1UDcQTDALLpqlKsEgK7nayIUD5wbyUIa8/view?usp=drive_link) | [PPT Link](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A054F.pptx) |
-| **PANNALA APUROOP REDDY** | [Video Link 1](https://drive.google.com/file/d/1bWLRDonjn5ADakWeq5PQxw1fkmNfFcDZ/view?usp=sharing) | [Video Link 2](https://drive.google.com/file/d/1qcyzXgg9yb62aj67TLSwAgN-uVXc5p7N/view?usp=sharing) | [PPT Link](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A055C.pptx) |
-| **PICHAPATI ADI ASWATHA REDDY** | [Video Link 1](https://drive.google.com/file/d/1opIDj0n6hjS44Nzkb9LnAoHzQYy1zzDd/view?usp=drivesdk) | [Video Link 2](https://drive.google.com/file/d/1KPTLMhZS00Z9sa3H2s1Ig5IGMtVYn2bH/view?usp=drive_link) | [PPT Link](https://docs.google.com/presentation/d/example5) |
-| **PANDIT VIVEK KUMAR** | [Video Link 1](https://drive.google.com/file/d/1lBQ5GtokwO0AP2CxaH64hYXeBdPa5yB0/view?usp=sharing) | [Video Link 2](https://drive.google.com/file/d/1xUR7Xt43gZBFawfHQTG3rkJDJJaFpCBV/view?usp=drive_link) | [PPT Link](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A055B.pptx) |
+| 👤 **Team Member** | 🎯 **Milestone 1** | 🎯 **Milestone 2** | 📋 **Presentation** |
+|:-------------------|:-------------------:|:-------------------:|:--------------------:|
+| **NUKALA SIRI CHANDANA** | [🎥 Watch Demo](https://youtu.be/kk90nlDJyQY?si=3Ql4M1sTTovHFs-c) | [🎥 Watch](https://www.youtube.com/watch?v=2t-nBTw2Fcc) | [📊 View Slides](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A0556.pptx) |
+| **LOKINENI HINDHUJA** | [🎥 Watch](https://drive.google.com/file/d/188SJ_Cpvs_8Wvk_KrPtYrIbw2gC78pLA/view) | [🎥 Watch](https://www.youtube.com/watch?v=UWc4-Y4jeWs) | [📊 View Slides](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A0545.pptx) |
+| **MANTHINEEDI SANTHOSH SIDDARTHA** | [🎥 Watch](https://drive.google.com/file/d/1_TmtuXGoI8EVZurBlH3fJcrTQeeVRM_r/view) | [🎥 Watch](https://drive.google.com/file/d/1UDcQTDALLpqlKsEgK7nayIUD5wbyUIa8/view?usp=drive_link) | [📊 View Slides](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A054F.pptx) |
+| **PANNALA APUROOP REDDY** | [🎥 Watch](https://drive.google.com/file/d/1bWLRDonjn5ADakWeq5PQxw1fkmNfFcDZ/view?usp=sharing) | [🎥 Watch](https://drive.google.com/file/d/1qcyzXgg9yb62aj67TLSwAgN-uVXc5p7N/view?usp=sharing) | [📊 View Slides](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A055C.pptx) |
+| **PICHAPATI ADI ASWATHA REDDY** | [🎥 Watch](https://drive.google.com/file/d/1opIDj0n6hjS44Nzkb9LnAoHzQYy1zzDd/view?usp=drivesdk) | [🎥 Watch](https://drive.google.com/file/d/1KPTLMhZS00Z9sa3H2s1Ig5IGMtVYn2bH/view?usp=drive_link) | [📊 View Slides](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A055N.pptx) |
+| **PANDIT VIVEK KUMAR** | [🎥 Watch](https://drive.google.com/file/d/1lBQ5GtokwO0AP2CxaH64hYXeBdPa5yB0/view?usp=sharing) | [🎥 Watch](https://drive.google.com/file/d/1xUR7Xt43gZBFawfHQTG3rkJDJJaFpCBV/view?usp=drive_link) | [📊 View Slides](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A055B.pptx) |
 
 --- 
 
