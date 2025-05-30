@@ -102,6 +102,17 @@ Small-E proves that high-quality speech synthesis doesn't have to be resource-he
 - **Member 5**: [PICHAPATI ADI ASWATHA REDDY KMIT](https://github.com/aswath-reddy)
 - **Member 6**: [PANDIT VIVEK KUMAR](https://github.com/Vivek17290)
 
+## 📊 Project Milestones
+
+| Team Member | Milestone 1 Links | Milestone 2 Links | PPT Links |
+|-------------|-------------------|-------------------|-----------|
+| **NUKALA SIRI CHANDANA** | [Video Link 1](https://youtu.be/kk90nlDJyQY?si=3Ql4M1sTTovHFs-c) | [Video Link 2](https://www.youtube.com/watch?v=2t-nBTw2Fcc) | [Presentation](https://docs.google.com/presentation/d/example1) |
+| **LOKINENI HINDHUJA** | [Video Link 1](https://drive.google.com/file/d/188SJ_Cpvs_8Wvk_KrPtYrIbw2gC78pLA/view) | [Video Link 2](https://www.youtube.com/watch?v=UWc4-Y4jeWs) | [Slides](https://docs.google.com/presentation/d/example2) |
+| **MANTHINEEDI SANTHOSH SIDDARTHA** | [Video Link 1](https://drive.google.com/file/d/1_TmtuXGoI8EVZurBlH3fJcrTQeeVRM_r/view) | [Video Link 2](https://drive.google.com/file/d/1UDcQTDALLpqlKsEgK7nayIUD5wbyUIa8/view?usp=drive_link) | [Demo PPT](https://docs.google.com/presentation/d/example3) |
+| **PANNALA APUROOP REDDY** | [Video Link 1](https://drive.google.com/file/d/1bWLRDonjn5ADakWeq5PQxw1fkmNfFcDZ/view?usp=sharing) | [Video Link 2](https://drive.google.com/file/d/1qcyzXgg9yb62aj67TLSwAgN-uVXc5p7N/view?usp=sharing) | [Final Presentation](https://docs.google.com/presentation/d/example4) |
+| **PICHAPATI ADI ASWATHA REDDY** | [Video Link 1](https://drive.google.com/file/d/1opIDj0n6hjS44Nzkb9LnAoHzQYy1zzDd/view?usp=drivesdk) | [Video Link 2](https://drive.google.com/file/d/1KPTLMhZS00Z9sa3H2s1Ig5IGMtVYn2bH/view?usp=drive_link) | [Technical PPT](https://docs.google.com/presentation/d/example5) |
+| **PANDIT VIVEK KUMAR** | [Video Link 1](https://drive.google.com/file/d/1lBQ5GtokwO0AP2CxaH64hYXeBdPa5yB0/view?usp=sharing) | [Video Link 2](https://drive.google.com/file/d/1xUR7Xt43gZBFawfHQTG3rkJDJJaFpCBV/view?usp=drive_link) | [Project Overview](https://docs.google.com/presentation/d/example6) |
+
 --- 
 
 2025 AvatarLab Team | G362-PS25
