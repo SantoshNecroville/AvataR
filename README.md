@@ -25,9 +25,17 @@ This Project brings avatars to life by creating realistic talking head animation
 
 ### Sample Outputs
 
-![Anime Avatar Demo](./assets/anime.mp4)
+<video width="600" controls>
+  <source src="./assets/anime.mp4" type="video/mp4">
+</video>
 
-![Virat Avatar Demo](./assets/virat.mp4)
+<video width="600" controls>
+  <source src="./assets/virat.mp4" type="video/mp4">
+</video>
+
+<!-- ![Anime Avatar Demo](./assets/anime.mp4)
+
+![Virat Avatar Demo](./assets/virat.mp4) -->
 
 ## 📌 Research Paper Explanations
 
@@ -115,7 +123,7 @@ Small-E proves that high-quality speech synthesis doesn't have to be resource-he
 
 | 👤 **Team Member** | 🎯 **Milestone 1** | 🎯 **Milestone 2** | 📋 **Presentation** |
 |:-------------------|:-------------------:|:-------------------:|:--------------------:|
-| **NUKALA SIRI CHANDANA** | [🎥 Watch Demo](https://youtu.be/kk90nlDJyQY?si=3Ql4M1sTTovHFs-c) | [🎥 Watch](https://www.youtube.com/watch?v=2t-nBTw2Fcc) | [📊 View Slides](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A0556.pptx) |
+| **NUKALA SIRI CHANDANA** | [🎥 Watch](https://youtu.be/kk90nlDJyQY?si=3Ql4M1sTTovHFs-c) | [🎥 Watch](https://www.youtube.com/watch?v=2t-nBTw2Fcc) | [📊 View Slides](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A0556.pptx) |
 | **LOKINENI HINDHUJA** | [🎥 Watch](https://drive.google.com/file/d/188SJ_Cpvs_8Wvk_KrPtYrIbw2gC78pLA/view) | [🎥 Watch](https://www.youtube.com/watch?v=UWc4-Y4jeWs) | [📊 View Slides](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A0545.pptx) |
 | **MANTHINEEDI SANTHOSH SIDDARTHA** | [🎥 Watch](https://drive.google.com/file/d/1_TmtuXGoI8EVZurBlH3fJcrTQeeVRM_r/view) | [🎥 Watch](https://drive.google.com/file/d/1UDcQTDALLpqlKsEgK7nayIUD5wbyUIa8/view?usp=drive_link) | [📊 View Slides](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A054F.pptx) |
 | **PANNALA APUROOP REDDY** | [🎥 Watch](https://drive.google.com/file/d/1bWLRDonjn5ADakWeq5PQxw1fkmNfFcDZ/view?usp=sharing) | [🎥 Watch](https://drive.google.com/file/d/1qcyzXgg9yb62aj67TLSwAgN-uVXc5p7N/view?usp=sharing) | [📊 View Slides](https://github.com/SantoshNecroville/AvataR/blob/main/docs/23BD1A055C.pptx) |
