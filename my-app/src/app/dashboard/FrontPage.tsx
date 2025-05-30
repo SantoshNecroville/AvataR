@@ -48,7 +48,7 @@ const HomePage = ({ setCurrentItem }: HomePageProps) => {
         <div className={isDarkMode ? 'dark' : ''}>
             <div className={`${component !== "frontPage" ? "hidden" : "block"} min-h-screen bg-background dark:bg-black text-purple-900 dark:text-purple-100 p-4 sm:p-6 md:p-8 rounded-md w-full overflow-x-hidden transition-colors duration-300`}>
                 <Head>
-                    <title>Studio by Gan.AI</title>
+                    <title>Studio by AvatarAI</title>
                     <meta name="description" content="Create personalized videos and avatars" />
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 </Head>
@@ -151,7 +151,7 @@ const HomePage = ({ setCurrentItem }: HomePageProps) => {
                                 </div>
                                 <AvatarIllustration isDark={isDarkMode} />
                             </div>
-                            <h3 className="text-xl sm:text-2xl font-medium mb-4 sm:mb-6 text-center text-purple-900 dark:text-purple-100">Welcome to Studio by Gan.AI</h3>
+                            <h3 className="text-xl sm:text-2xl font-medium mb-4 sm:mb-6 text-center text-purple-900 dark:text-purple-100">Welcome to Studio by AvatarAI</h3>
                             <button 
                                 className="bg-purple-700 dark:bg-purple-600 cursor-pointer hover:bg-purple-800 dark:hover:bg-purple-500 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-medium w-full sm:w-auto shadow-md" 
                                 onClick={() => DirectToCreate("createAvatarP")}

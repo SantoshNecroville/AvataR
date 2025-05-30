@@ -650,7 +650,7 @@ export default function CreateAvatarP() {
                   className="h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded transition-all"
                 />
                 <label htmlFor="cropImage" className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
-                  Auto-crop face from image for better results
+                  Auto-crop face (* for bigger images only)
                 </label>
               </div>
             </div>
