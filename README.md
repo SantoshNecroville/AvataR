@@ -25,10 +25,7 @@ This Project brings avatars to life by creating realistic talking head animation
 
 ### Sample Outputs
 
-<video width="320" height="240" controls>
-  <source src="./assets/anime.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[🎥 Anime Avatar Demo](./assets/anime.mp4)
 
 [🎥 Virat Avatar Demo](./assets/virat.mp4)
 
