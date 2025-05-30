@@ -25,17 +25,9 @@ This Project brings avatars to life by creating realistic talking head animation
 
 ### Sample Outputs
 
-<video width="600" controls>
-  <source src="./assets/anime.mp4" type="video/mp4">
-</video>
+![Anime Avatar Demo](https://github.com/SantoshNecroville/AvataR/blob/main/assets/anime.mp4)
 
-<video width="600" controls>
-  <source src="./assets/virat.mp4" type="video/mp4">
-</video>
-
-<!-- ![Anime Avatar Demo](./assets/anime.mp4)
-
-![Virat Avatar Demo](./assets/virat.mp4) -->
+![Virat Avatar Demo](https://github.com/SantoshNecroville/AvataR/blob/main/assets/virat.mp4)
 
 ## 📌 Research Paper Explanations
 
